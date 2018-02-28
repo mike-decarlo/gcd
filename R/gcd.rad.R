@@ -8,7 +8,7 @@
 #' 
 #' @param deg a value in degrees
 #' 
-#' @example
+#' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
 #' deg <- runif(1000, -180, 180)

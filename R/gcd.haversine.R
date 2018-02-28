@@ -14,7 +14,7 @@
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
 #' 
-#' @example
+#' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
 #' deg.lon <- runif(1000, -180, 180)
