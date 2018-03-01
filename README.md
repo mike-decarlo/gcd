@@ -31,7 +31,7 @@ Now that R is setup (with or without RStudio) and the {devtools} package is inst
 
 ## License
 
-This project is licensed under the GPL-3 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL-3 License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
