@@ -1,88 +1,39 @@
 # gcd
 
 The {gcd} package for R contains several tools for working with latitude and longitude values and obtaining estimated distances between points. The name of the package comes from the term "great circle distance" used to describe distances on the surface of the "Great Circle" (Earth). There are a few different methods for estimating the distance with varying trade-offs of efficiency vs. accuracy.
-One Paragraph of project description goes here
+- Spherical Law of Cosines (slc): assumes spherical shape; sensitive to very close distances
+- Haversine formula (haversine): assumes spherical shape; more robust to close distances
+- Vincenty inverse formula for ellipsoids (vincenty): uses ellipsoid shape with Earth's polar radius and equatorial radius
+Using these methods, the {gcd} package allows users to make easy measurements from place to place on the Earth's surface in km or miles.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Some prerequisites to getting this product up and running in R:
+- Install R (https://www.r-project.org/)
+- Install RStudio (recommended) (https://www.rstudio.com/)
+- Download and install the {devtools} package from CRAN
+  - From R/RStudio console enter: <code>install.packages("devtools")</code>
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+Now that R is setup (with or without RStudio) and the {devtools} package is installed, it's possible to start downloading and installing R packages directly from Github. To download, install, and start using the {gcd} package follow the steps:
+- Download and install the {gcd} package from Github
+  - From R/RStudio console enter: <code>devtools::install_github("wolfm4ne/gcd")</code>
+- Load the {gcd} package library
+  - From R/RStudio console enter: <code>library(gcd)</code>
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Mike DeCarlo** - *Author, Maintainer* - [wolfm4ne](https://github.com/wolfm4ne)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL-3 License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* [Mario Pineda-Krch](http://pineda-krch.com/)
+* The reasoning behind this product is to supply an easy solution for geocoding and geodesic distance calculation for a client
