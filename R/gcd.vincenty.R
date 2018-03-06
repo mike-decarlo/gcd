@@ -12,6 +12,7 @@
 #' @param lat1 the latitude as radians of the first point
 #' @param lon2 the longitude as radians of the second point
 #' @param lat2 the latitude as radians of the second point
+#' @param type defaults to "deg", can also be "rad"
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
 #' 
@@ -28,11 +29,13 @@
 #' 
 #' @export
 
-gcd.vincenty <- function(lon1, lat1, lon2, lat2, km = TRUE) {
-  lon1 <- gcd.rad(lon1)
-  lat1 <- gcd.rad(lat1)
-  lon2 <- gcd.rad(lon2)
-  lat2 <- gcd.rad(lat2)
+gcd.vincenty <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
+  if (type == "deg") {
+    lon1 <- gcd.rad(lon1)
+    lon2 <- gcd.rad(lon2)
+    lat1 <- gcd.rad(lat1)
+    lat2 <- gcd.rad(lat2)
+  }
   
   a <- 6378137         # length of major axis of ellipsoid (radius at equator)
   b <- 6356752.314245  # length of major axis of ellipsoid (radius at poles)

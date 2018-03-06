@@ -5,7 +5,7 @@
 \title{Calculates the distance between geocoordinates using the Spherical Law of
 Cosines (SLC)}
 \usage{
-gcd.slc(lon1, lat1, lon2, lat2, km = TRUE)
+gcd.slc(lon1, lat1, lon2, lat2, type = "deg", km = TRUE)
 }
 \arguments{
 \item{lon1}{the longitude as radians of the first point}
@@ -15,6 +15,8 @@ gcd.slc(lon1, lat1, lon2, lat2, km = TRUE)
 \item{lon2}{the longitude as radians of the second point}
 
 \item{lat2}{the latitude as radians of the second point}
+
+\item{type}{defaults to "deg", can also be "rad"}
 
 \item{km}{boolean argument for whether to return results as km (TRUE) or
 miles (FALSE)}
