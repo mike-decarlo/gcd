@@ -35,6 +35,14 @@ gcd.vincenty <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
     lon2 <- gcd.rad(lon2)
     lat1 <- gcd.rad(lat1)
     lat2 <- gcd.rad(lat2)
+  } else if ( type == "rad") {
+    lon1 <- lon1
+    lon2 <- lon2
+    lat1 <- lat1
+    lat2 <- lat2
+  } else {
+    message("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
+    break
   }
   
   a <- 6378137         # length of major axis of ellipsoid (radius at equator)
