@@ -22,17 +22,18 @@
 #' # Latitude values range between 0 and +-90 degrees
 #' deg.lat <- runif(1000, -90, 90)
 #' 
-#' # Convert degrees to radians
-#' rad.lon <- gcd.rad(deg.lon)
-#' rad.lat <- gcd.rad(deg.lat)
-#' 
 #' # Obtain measures of distnace
-#' sphere.mi <- gcd.slc(lon1 = rad.lon[1:500], lat1 = rad.lat[1:500]
-#'   , lon2 = rad.lon[501:1000], lat2 = rad.lat[501:1000], km = FALSE)
+#' sphere.mi <- gcd.slc(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
+#'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
 #' 
 #' @export
 
 gcd.slc <- function(lon1, lat1, lon2, lat2, km = TRUE) {
+  lon1 <- gcd.rad(lon1)
+  lat1 <- gcd.rad(lat1)
+  lon2 <- gcd.rad(lon2)
+  lat2 <- gcd.rad(lat2)
+  
   R <- 6371 # Earth's mean radius [km]
   d <- acos(sin(lat1) * sin(lat2) + cos(lat1)
             * cos(lat2) * cos(lon2 - lon1)) * R

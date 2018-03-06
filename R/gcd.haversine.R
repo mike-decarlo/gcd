@@ -21,18 +21,19 @@
 #' # Latitude values range between 0 and +-90 degrees
 #' deg.lat <- runif(1000, -90, 90)
 #' 
-#' # Convert degrees to radians
-#' rad.lon <- gcd.rad(deg.lon)
-#' rad.lat <- gcd.rad(deg.lat)
-#' 
 #' # Obtain measures of distnace
-#' hav.mi <- gcd.haversine(lon1 = rad.lon[1:500], lat1 = rad.lat[1:500]
-#'   , lon2 = rad.lon[501:1000], lat2 = rad.lat[501:1000], km = FALSE)
+#' hav.mi <- gcd.haversine(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
+#'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
 #' 
 #' @export
 
 gcd.haversine <- function(lon1, lat1, lon2, lat2, km = TRUE) {
-  R <- 6371 # Earth's mean radius [km]
+  lon1 <- gcd.rad(lon1)
+  lat1 <- gcd.rad(lat1)
+  lon2 <- gcd.rad(lon2)
+  lat2 <- gcd.rad(lat2)
+  
+    R <- 6371 # Earth's mean radius [km]
   delta.lon <- (lon2 - lon1)
   delta.lat <- (lat2 - lat1)
   a <- sin(delta.lat / 2) ^ 2 + cos(lat1) * cos(lat2) * sin(delta.lon / 2) ^ 2

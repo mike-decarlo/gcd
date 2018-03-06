@@ -34,12 +34,8 @@ deg.lon <- runif(1000, -180, 180)
 # Latitude values range between 0 and +-90 degrees
 deg.lat <- runif(1000, -90, 90)
 
-# Convert degrees to radians
-rad.lon <- gcd.rad(deg.lon)
-rad.lat <- gcd.rad(deg.lat)
-
 # Obtain measures of distnace
-vin.mi <- gcd.vincenty(lon1 = rad.lon[1:500], lat1 = rad.lat[1:500]
-  , lon2 = rad.lon[501:1000], lat2 = rad.lat[501:1000], km = FALSE)
+vin.mi <- gcd.vincenty(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
+  , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
 
 }
