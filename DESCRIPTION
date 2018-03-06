@@ -1,7 +1,7 @@
 Package: gcd
 Type: Package
 Title: Geodesic Distance Calculation
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: person("Mike", "DeCarlo", email = "mdecarlo@knowesis-inc.com", role = c("aut", "cre"))
 Description: The {gcd} package works with geocoordinates to return geodesic distances between points.
 Depends: R (>= 3.4.3)
