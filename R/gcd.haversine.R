@@ -40,8 +40,7 @@ gcd.haversine <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
     lat1 <- lat1
     lat2 <- lat2
   } else {
-    message("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
-    break
+    stop("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
   }
   
     R <- 6371 # Earth's mean radius [km]

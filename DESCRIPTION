@@ -1,7 +1,7 @@
 Package: gcd
 Type: Package
 Title: Geodesic Distance Calculation
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: person("Mike", "DeCarlo", email = "mdecarlo@knowesis-inc.com", role = c("aut", "cre"))
 Description: The {gcd} package for R contains several tools for working with latitude and longitude values and obtaining estimated distances between points. The name of the package comes from the term "great circle distance" used to describe distances on the surface of the "Great Circle" (Earth). There are a few different methods for estimating the distance with varying trade-offs of efficiency vs. accuracy.
   -Spherical Law of Cosines (slc): assumes spherical shape; sensitive to very close distances
