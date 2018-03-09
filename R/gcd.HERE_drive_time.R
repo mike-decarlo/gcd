@@ -34,6 +34,9 @@
 #' @examples 
 #' 
 #' @export
+#' @import jsonlite
+#' @import RCurl
+#' @import leaflet
 
 gcd.HERE_drive_time <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
