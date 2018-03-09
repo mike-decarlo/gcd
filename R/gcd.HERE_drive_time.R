@@ -36,8 +36,8 @@
 #' @export
 
 gcd.HERE_drive_time <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
-  , app_id, app_code, time_frmt = 1, type = 1, trnsprt = 1, trfc = 1
-  , coord_typ = 1) {
+  , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
+  , trfc = "disabled", coord_typ = "rad") {
   
   if (coord_typ == "rad") {
     
@@ -66,7 +66,25 @@ gcd.HERE_drive_time <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   json <- fromJSON(request_url, flatten = FALSE)
   
   travelTime <- json$response$route$summary$travelTime # in seconds
-  travelTime <- travelTime / 3600 # convert to hours
+  
+  if (time_frmt == "seconds") {
+    
+    # do nothing, already in seconds
+    
+  } else if (time_frmt == "minutes") {
+    
+    travelTime <- travelTime / 60 # convert to minutes
+    
+  } else if (time_frmt == "hours") {
+  
+    travelTime <- travelTime / 3600 # convert to hours
+  
+  } else {
+    
+    message("Error: argument 'time_frmt' must have value 'hours', 'minutes', or
+      'seconds'. Please enter a valid argument value for 'timefrmt'.")
+    
+  }
   
   return(travelTime)
   

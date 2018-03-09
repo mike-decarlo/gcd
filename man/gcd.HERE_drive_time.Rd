@@ -5,7 +5,8 @@
 \title{Get drive time in hours from HERE.com Routing API}
 \usage{
 gcd.HERE_drive_time(orgn_lat, orgn_lon, dest_lat, dest_lon, app_id, app_code,
-  time_frmt = 1, type = 1, trnsprt = 1, trfc = 1, coord_typ = 1)
+  time_frmt = "hours", type = "fastest", trnsprt = "car",
+  trfc = "disabled", coord_typ = "rad")
 }
 \arguments{
 \item{orgn_lat}{the latitude coordinate for the origin location}
