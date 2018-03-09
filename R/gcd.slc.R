@@ -8,10 +8,10 @@
 #' of Spherical Law of Cosines, a basic distance between two points on the
 #' surface of a sphere.
 #' 
-#' @param lon1 the longitude as radians of the first point
 #' @param lat1 the latitude as radians of the first point
-#' @param lon2 the longitude as radians of the second point
+#' @param lon1 the longitude as radians of the first point
 #' @param lat2 the latitude as radians of the second point
+#' @param lon2 the longitude as radians of the second point
 #' @param type defaults to "deg", can also be "rad"
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
@@ -29,7 +29,7 @@
 #' 
 #' @export
 
-gcd.slc <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
+gcd.slc <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   if (type == "deg") {
     lon1 <- gcd.rad(lon1)
     lon2 <- gcd.rad(lon2)
