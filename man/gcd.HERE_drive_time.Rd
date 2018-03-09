@@ -22,8 +22,8 @@ registration)}
 \item{app_code}{the user's App Code for the HERE.com JavaScript/REST
 (requires registration)}
 
-\item{time_frmt}{the user's preferred time format: \enumerate{ \item \code{"
-hours"} \item \code{"minutes"} \item \code{"seconds"} }}
+\item{time_frmt}{the user's preferred time format: \enumerate{ \item
+\code{"hours"} \item \code{"minutes"} \item \code{"seconds"} }}
 
 \item{type}{a method of deciding optimal travel route: \enumerate{ \item 
 \code{"fastest"} \item \code{"shortest"} }}
@@ -36,7 +36,7 @@ hours"} \item \code{"minutes"} \item \code{"seconds"} }}
 \code{"disabled"} \item \code{"enabled"} }}
 
 \item{coord_type}{if the geocoordinates are in degrees or radians:
-\enumerate{ \item \code{"rad"}{"radians"} \item \code{"deg"}{"degrees"} }}
+\enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }}
 }
 \value{
 the travel time as specified between two locations
