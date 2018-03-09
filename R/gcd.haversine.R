@@ -29,6 +29,7 @@
 #' @export
 
 gcd.haversine <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
+  
   if (type == "deg") {
     lon1 <- gcd.rad(lon1)
     lon2 <- gcd.rad(lon2)
@@ -42,13 +43,19 @@ gcd.haversine <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
   } else {
     stop("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
   }
-  
-    R <- 6371 # Earth's mean radius [km]
+
+  R <- 6371 # Earth's mean radius [km]
   delta.lon <- (lon2 - lon1)
   delta.lat <- (lat2 - lat1)
-  a <- sin(delta.lat / 2) ^ 2 + cos(lat1) * cos(lat2) * sin(delta.lon / 2) ^ 2
-  c <- 2 * asin(min(1, sqrt(a)))
-  d <- R * c
+  
+  # hav(theta) = (1 - cos(theta)) / 2
+  hav <- function(theta) { return((1 - cos(theta)) / 2) }
+  
+  # hav =(d / r)
+  h <- hav(delta.lat) + cos(lat1) * cos(lat2) * hav(delta.lon)
+  
+  d <- 2 * R * asin(sqrt(h))
+
   if (km == FALSE) {
     # If km == FALSE, then the desired answer should be in miles.
     # Convert `d` from km to miles by multipling by `0.621371`.
