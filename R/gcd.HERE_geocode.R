@@ -11,7 +11,9 @@
 #' @param app_id the longitude coordinate for the origin location
 #' @param app_code the latitude coordinate for the destination location
 #' 
-#' @return location information for the entered address string
+#' @return location information for the entered address string:
+#'   OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
+#'   District, Street, HouseNumber, PostalCode
 #' 
 #' @examples 
 #' 
