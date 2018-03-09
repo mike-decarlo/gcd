@@ -1,6 +1,6 @@
 #' Get drive time in hours from HERE.com Routing API
 #' 
-#' The function \code{"gcd.HERE_drive_time"} is designed to take degree or
+#' The function \code{"gcd.HERE_drivetime"} is designed to take degree or
 #' radian geocoordinates, user app credentials, and some other API inputs (set
 #' to defaults). The function queries the HERE.com Routing API \code{"(https://
 #' developer.here.com/documentation/routing/topics/what-is.html)"} and return
@@ -38,7 +38,7 @@
 #' @import RCurl
 #' @import leaflet
 
-gcd.HERE_drive_time <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
+gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
   , trfc = "disabled", coord_typ = "rad") {
   
