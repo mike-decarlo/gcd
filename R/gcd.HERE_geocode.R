@@ -24,7 +24,7 @@
 
 gcd.HERE_geocode <- function(address, app_id, app_code) {
   
-  base <- "https://geocoder.cit.api.here.com/6.2/geocode.json?"
+  base <- "https://geocoder.api.here.com/6.2/geocode.json?"
   addr <- paste0("searchtext=", curlEscape(address))
   id <- paste0("&app_id=", curlEscape(app_id))
   code <- paste0("&app_code=", curlEscape(app_code))
