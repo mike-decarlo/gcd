@@ -51,7 +51,7 @@ gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
     
   }
 
-  base <- "https://route.api.here.com/routing/7.2/calculateroute.json?"
+  base <- "https://route.cit.api.here.com/routing/7.2/calculateroute.json?"
   id <- paste0("&app_id=", curlEscape(app_id))
   code <- paste0("&app_code=", curlEscape(app_code))
   wypnt0 <- paste0("waypoint0=", curlEscape(paste0(orgn_lat, ",", orgn_lon)))
