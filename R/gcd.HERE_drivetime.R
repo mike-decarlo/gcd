@@ -28,6 +28,7 @@
 #' \code{"disabled"} \item \code{"enabled"} }
 #' @param coord_type if the geocoordinates are in degrees or radians:
 #' \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }
+#' @param dev whether to use development or production site
 #' 
 #' @return the travel time as specified between two locations
 #' 
@@ -40,7 +41,16 @@
 
 gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
-  , trfc = "disabled", coord_typ = "rad") {
+  , trfc = "disabled", coord_typ = "rad", dev = FALSE) {
+  
+  if (dev == TRUE) {
+    base <- "https://route.cit.api.here.com/routing/7.2/calculateroute.json?"
+  } else if (dev == FALSE) {
+    base <- "https://route.api.here.com/routing/7.2/calculateroute.json?"
+  } else {
+    message("Error: argument 'dev' must be given value of either TRUE or FALSE.\n")
+    break
+  }
   
   if (coord_typ == "rad") {
     
@@ -51,7 +61,6 @@ gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
     
   }
 
-  base <- "https://route.api.here.com/routing/7.2/calculateroute.json?"
   id <- paste0("&app_id=", curlEscape(app_id))
   code <- paste0("&app_code=", curlEscape(app_code))
   wypnt0 <- paste0("waypoint0=", curlEscape(paste0(orgn_lat, ",", orgn_lon)))

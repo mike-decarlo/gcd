@@ -6,7 +6,7 @@
 \usage{
 gcd.HERE_drivetime(orgn_lat, orgn_lon, dest_lat, dest_lon, app_id, app_code,
   time_frmt = "hours", type = "fastest", trnsprt = "car",
-  trfc = "disabled", coord_typ = "rad")
+  trfc = "disabled", coord_typ = "rad", dev = FALSE)
 }
 \arguments{
 \item{orgn_lat}{the latitude coordinate for the origin location}
@@ -35,6 +35,8 @@ registration)}
 
 \item{trfc}{whether or not to factor in traffic: \enumerate{ \item
 \code{"disabled"} \item \code{"enabled"} }}
+
+\item{dev}{whether to use development or production site}
 
 \item{coord_type}{if the geocoordinates are in degrees or radians:
 \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }}

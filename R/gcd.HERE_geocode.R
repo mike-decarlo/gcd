@@ -10,6 +10,7 @@
 #' @param address the latitude coordinate for the origin location
 #' @param app_id the longitude coordinate for the origin location
 #' @param app_code the latitude coordinate for the destination location
+#' @param dev whether to use development or production site
 #' 
 #' @return location information for the entered address string:
 #'   OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
@@ -22,9 +23,17 @@
 #' @import RCurl
 #' @import leaflet
 
-gcd.HERE_geocode <- function(address, app_id, app_code) {
+gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   
-  base <- "https://geocoder.api.here.com/6.2/geocode.json?"
+  if (dev == TRUE) {
+    base <- "https://route.cit.api.here.com/routing/7.2/calculateroute.json?"
+  } else if (dev == FALSE) {
+    base <- "https://route.api.here.com/routing/7.2/calculateroute.json?"
+  } else {
+    message("Error: argument 'dev' must be given value of either TRUE or FALSE.\n")
+    break
+  }
+  
   addr <- paste0("searchtext=", curlEscape(address))
   id <- paste0("&app_id=", curlEscape(app_id))
   code <- paste0("&app_code=", curlEscape(app_code))
