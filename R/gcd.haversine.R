@@ -29,6 +29,11 @@
 #' @export
 
 gcd.haversine <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
+  for (i in c("lat1", "lon1", "lat2", "lon2")) {
+    if (is.numeric(get(i)) == FALSE) {
+      stop(paste0("Argument ", i, " must be numeric.\n"))
+    }
+  }
   
   if (type == "deg") {
     lon1 <- gcd.rad(lon1)
