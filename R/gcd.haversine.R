@@ -6,7 +6,6 @@
 #' miles (\code{"km = FALSE"}). The output is the distance using the method
 #' of the Haversine formula, a more robust distance between two points on the
 #' surface of a sphere.
-#' 
 #' @param lat1 the latitude as radians of the first point
 #' @param lon1 the longitude as radians of the first point
 #' @param lat2 the latitude as radians of the second point
@@ -14,7 +13,7 @@
 #' @param type defaults to "deg", can also be "rad"
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
-#' 
+#' @export
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
@@ -25,8 +24,6 @@
 #' # Obtain measures of distnace
 #' hav.mi <- gcd.haversine(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
 #'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
-#' 
-#' @export
 
 gcd.haversine <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   for (i in c("lat1", "lon1", "lat2", "lon2")) {

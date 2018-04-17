@@ -6,22 +6,18 @@
 #' \code{(https://developer.here.com/documentation/geocoder/topics/what-is.html)}
 #' and returns the drive time from the JSON output code. This geocoding
 #' information from the JSON is originally returned as a dataframe.
-#' 
 #' @param address the latitude coordinate for the origin location
 #' @param app_id the longitude coordinate for the origin location
 #' @param app_code the latitude coordinate for the destination location
 #' @param dev whether to use development or production site
-#' 
 #' @return location information for the entered address string:
 #'   OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
 #'   District, Street, HouseNumber, PostalCode
-#' 
-#' @examples 
-#' 
 #' @export
 #' @import jsonlite
 #' @import RCurl
 #' @import leaflet
+#' @examples
 
 gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   

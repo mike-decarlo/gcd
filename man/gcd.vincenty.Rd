@@ -39,5 +39,4 @@ deg.lat <- runif(1000, -90, 90)
 # Obtain measures of distnace
 vin.mi <- gcd.vincenty(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
-
 }

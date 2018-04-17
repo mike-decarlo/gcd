@@ -54,6 +54,3 @@ is originally return in seconds. This function is designed to take an
 argument for the user preferred time (seconds, minutes, or hours) as a non-
 integer, numeric value (a number with decimals).
 }
-\examples{
-
-}

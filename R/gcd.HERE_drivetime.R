@@ -8,7 +8,6 @@
 #' is originally return in seconds. This function is designed to take an
 #' argument for the user preferred time (seconds, minutes, or hours) as a non-
 #' integer, numeric value (a number with decimals).
-#' 
 #' @param orgn_lat the latitude coordinate for the origin location
 #' @param orgn_lon the longitude coordinate for the origin location
 #' @param dest_lat the latitude coordinate for the destination location
@@ -29,15 +28,12 @@
 #' @param coord_type if the geocoordinates are in degrees or radians:
 #' \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }
 #' @param dev whether to use development or production site
-#' 
 #' @return the travel time as specified between two locations
-#' 
-#' @examples 
-#' 
 #' @export
 #' @import jsonlite
 #' @import RCurl
 #' @import leaflet
+#' @examples
 
 gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"

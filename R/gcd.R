@@ -7,7 +7,6 @@
 #' miles (\code{"km = FALSE"}). The output is three distances using the methods
 #' of Spherical Law of Cosines, Haversine formula, and Vincenty inverse formula
 #' for ellipsoids.
-#' 
 #' @param lon1 the longitude as radians of the first point
 #' @param lat1 the latitude as radians of the first point
 #' @param lon2 the longitude as radians of the second point
@@ -15,7 +14,7 @@
 #' @param type defaults to "deg", can also be "rad"
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
-#' 
+#' @export
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
@@ -26,8 +25,6 @@
 #' # Obtain measures of distnace
 #' gcd.mi <- gcd(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
 #'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
-#' 
-#' @export
 
 gcd <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
   if (type == "deg") {

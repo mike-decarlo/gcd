@@ -6,15 +6,12 @@
 #' This utility conversion is useful when dealing with geocoding coordinates,
 #' as it might be desirable to obtain the original coordinate values in
 #' degrees.
-#' 
 #' @param rad a value in radians
-#' 
+#' @export
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
 #' rad <- runif(1000, -180, 180) * pi / 180
 #' deg <- gcd.deg(rad)
-#' 
-#' @export
 
 gcd.deg <- function(rad) return(rad * 180 / pi)

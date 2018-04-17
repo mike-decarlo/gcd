@@ -28,6 +28,3 @@ API
 and returns the drive time from the JSON output code. This geocoding
 information from the JSON is originally returned as a dataframe.
 }
-\examples{
-
-}
