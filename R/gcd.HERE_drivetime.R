@@ -28,11 +28,13 @@
 #' @param coord_type if the geocoordinates are in degrees or radians:
 #' \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }
 #' @param dev whether to use development or production site
+#' 
 #' @return the travel time as specified between two locations
 #' @export
 #' @import jsonlite
 #' @import RCurl
 #' @import leaflet
+#' 
 #' @examples
 
 gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon

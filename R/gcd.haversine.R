@@ -13,7 +13,9 @@
 #' @param type defaults to "deg", can also be "rad"
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
+#'   
 #' @export
+#' 
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees

@@ -6,7 +6,9 @@
 #' Typically, this conversion would be in preparation of geocoordinate
 #' calculations in which the desired form of the coordinates is radians.
 #' @param deg a value in degrees
+#' 
 #' @export
+#' 
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees

@@ -7,7 +7,9 @@
 #' as it might be desirable to obtain the original coordinate values in
 #' degrees.
 #' @param rad a value in radians
+#' 
 #' @export
+#' 
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
