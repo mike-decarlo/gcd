@@ -18,8 +18,6 @@
 #' @import jsonlite
 #' @import RCurl
 #' @import leaflet
-#' 
-#' @examples
 
 gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   
