@@ -28,8 +28,7 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   } else if (dev == FALSE) {
     base <- "https://route.api.here.com/routing/7.2/calculateroute.json?"
   } else {
-    message("Error: argument 'dev' must be given value of either TRUE or FALSE.\n")
-    break
+    stop("Error: argument 'dev' must be given value of either TRUE or FALSE.\n")
   }
   
   addr <- paste0("searchtext=", curlEscape(address))

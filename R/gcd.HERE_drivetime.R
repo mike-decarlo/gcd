@@ -25,7 +25,7 @@
 #' \code{"truck"} \item \code{"bicycle"} }
 #' @param trfc whether or not to factor in traffic: \enumerate{ \item
 #' \code{"disabled"} \item \code{"enabled"} }
-#' @param coord_type if the geocoordinates are in degrees or radians:
+#' @param coord_typ if the geocoordinates are in degrees or radians:
 #' \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }
 #' @param dev whether to use development or production site
 #' 
@@ -46,8 +46,7 @@ gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   } else if (dev == FALSE) {
     base <- "https://route.api.here.com/routing/7.2/calculateroute.json?"
   } else {
-    message("Error: argument 'dev' must be given value of either TRUE or FALSE.\n")
-    break
+    stop("Error: argument 'dev' must be given value of either TRUE or FALSE.\n")
   }
   
   if (coord_typ == "rad") {

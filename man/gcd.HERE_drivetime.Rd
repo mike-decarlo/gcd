@@ -36,10 +36,10 @@ registration)}
 \item{trfc}{whether or not to factor in traffic: \enumerate{ \item
 \code{"disabled"} \item \code{"enabled"} }}
 
-\item{dev}{whether to use development or production site}
-
-\item{coord_type}{if the geocoordinates are in degrees or radians:
+\item{coord_typ}{if the geocoordinates are in degrees or radians:
 \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }}
+
+\item{dev}{whether to use development or production site}
 }
 \value{
 the travel time as specified between two locations
