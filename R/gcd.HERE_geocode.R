@@ -15,9 +15,8 @@
 #'   OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
 #'   District, Street, HouseNumber, PostalCode
 #' @export
-#' @import jsonlite
-#' @import RCurl
-#' @import leaflet
+#' @importFrom jsonlite fromJSON
+#' @importFrom RCurl curlEscape
 
 gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   

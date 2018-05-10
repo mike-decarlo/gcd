@@ -31,9 +31,8 @@
 #' 
 #' @return the travel time as specified between two locations
 #' @export
-#' @import jsonlite
-#' @import RCurl
-#' @import leaflet
+#' @importFrom jsonlite fromJSON
+#' @importFrom RCurl curlEscape
 
 gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
