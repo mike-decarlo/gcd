@@ -28,6 +28,7 @@
 #' @param coord_typ if the geocoordinates are in degrees or radians:
 #' \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }
 #' @param dev whether to use development or production site
+#' @param verbose Logical argument determining if messages are displayed.
 #' 
 #' @return the travel time as specified between two locations
 #' @export
@@ -36,7 +37,7 @@
 
 gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
-  , trfc = "disabled", coord_typ = "rad", dev = FALSE) {
+  , trfc = "disabled", coord_typ = "rad", dev = FALSE, verbose = FALSE) {
   
   if (dev == TRUE) {
     base <- "https://route.cit.api.here.com/routing/7.2/calculateroute.json?"
@@ -68,7 +69,11 @@ gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   departure <- paste0("&departure=", curlEscape(departure))
     
   request_url <- paste0(base, wypnt0, wypnt1, mode, id, code, departure)
-  message(request_url)
+  
+  if (verbose == TRUE) {
+    message(request_url)
+  }
+  
   json <- fromJSON(request_url, flatten = FALSE)
   
   travelTime <- json$response$route$summary$travelTime # in seconds

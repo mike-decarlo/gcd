@@ -10,6 +10,7 @@
 #' @param app_id the longitude coordinate for the origin location
 #' @param app_code the latitude coordinate for the destination location
 #' @param dev whether to use development or production site
+#' @param verbose Logical argument determining if messages are displayed.
 #' 
 #' @return location information for the entered address string:
 #'   OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
@@ -18,7 +19,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom RCurl curlEscape
 
-gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
+gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE, verbose = FALSE) {
   
   if (dev == TRUE) {
     base <- "https://geocoder.cit.api.here.com/6.2/geocode.json?"
@@ -34,7 +35,9 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   gen <- "&gen=8"
   request_url <- paste0(base, addr, id, code, gen)
   
-  message(request_url)
+  if (verbose == TRUE) {
+    message(request_url)
+  }
   
   json <- fromJSON(request_url, flatten = FALSE)
   
