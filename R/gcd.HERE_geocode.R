@@ -38,19 +38,67 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   
   json <- fromJSON(request_url, flatten = FALSE)
   
-  results <- data.frame(t(c(
-    address
-    , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
-    , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude
-    , json$Response$View$Result[[1]]$Location$Address$Label
-    , json$Response$View$Result[[1]]$Location$Address$Country
-    , json$Response$View$Result[[1]]$Location$Address$State
-    , json$Response$View$Result[[1]]$Location$Address$County
-    , json$Response$View$Result[[1]]$Location$Address$City
-    , json$Response$View$Result[[1]]$Location$Address$Street
-    , json$Response$View$Result[[1]]$Location$Address$HouseNumber
-    , json$Response$View$Result[[1]]$Location$Address$PostalCode
-    )))
+  r <- address
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Label)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Label)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Country)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Country)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$State)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$State)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$County)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$County)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$City)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$City)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Street)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Street)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$HouseNumber)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$HouseNumber)
+  } else {
+    r <- c(r, NA)
+  }
+  
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$PostalCode)) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$PostalCode)
+  } else {
+    r <- c(r, NA)
+  }
   
   colnames(results) <-  c("OrigAddr"
     , "Latitude"
