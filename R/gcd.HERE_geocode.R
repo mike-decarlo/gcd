@@ -42,14 +42,14 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
     address
     , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
     , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$Label
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$Country
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$State
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$County
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$City
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$Street
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$HouseNumber
-    , json$Response$View$Result[[1]]$Location$Address[[1]]$PostalCode
+    , json$Response$View$Result[[1]]$Location$Address$Label
+    , json$Response$View$Result[[1]]$Location$Address$Country
+    , json$Response$View$Result[[1]]$Location$Address$State
+    , json$Response$View$Result[[1]]$Location$Address$County
+    , json$Response$View$Result[[1]]$Location$Address$City
+    , json$Response$View$Result[[1]]$Location$Address$Street
+    , json$Response$View$Result[[1]]$Location$Address$HouseNumber
+    , json$Response$View$Result[[1]]$Location$Address$PostalCode
     ))
   
   colnames(results) <-  c("OrigAddr"
