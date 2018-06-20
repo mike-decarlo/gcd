@@ -40,62 +40,62 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   
   r <- address
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)
+  if (!is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude)
+  if (!is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Label)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Label)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Label[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Label[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Country)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Country)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Country[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Country[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$State)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$State)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$State[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$State[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$County)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$County)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$County[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$County[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$City)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$City)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$City[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$City[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Street)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Street)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$Street[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$Street[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$HouseNumber)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$HouseNumber)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$HouseNumber[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$HouseNumber[[1]])
   } else {
     r <- c(r, NA)
   }
   
-  if (!is.null(json$Response$View$Result[[1]]$Location$Address$PostalCode)) {
-    r <- c(r, json$Response$View$Result[[1]]$Location$Address$PostalCode)
+  if (!is.null(json$Response$View$Result[[1]]$Location$Address$PostalCode[[1]])) {
+    r <- c(r, json$Response$View$Result[[1]]$Location$Address$PostalCode[[1]])
   } else {
     r <- c(r, NA)
   }
