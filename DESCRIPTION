@@ -1,5 +1,5 @@
 Package: gcd
-Version: 0.0.1.1
+Version: 0.0.1.2
 Date: 2018-05-02
 Title: Geodesic Distance Calculation
 Authors@R: person("Mike", "DeCarlo", email = "decarlo.michael.j@gmail.com", role = c("aut", "cre"))
