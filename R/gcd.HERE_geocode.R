@@ -21,9 +21,9 @@
 gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   
   if (dev == TRUE) {
-    base <- "https://geocoder.cit.api.here.com/6.2/calculateroute.json?"
+    base <- "https://geocoder.cit.api.here.com/6.2/geocode.json?"
   } else if (dev == FALSE) {
-    base <- "https://geocoder.api.here.com/6.2/calculateroute.json?"
+    base <- "https://geocoder.api.here.com/6.2/geocode.json?"
   } else {
     stop("Error: argument 'dev' must be given value of either TRUE or FALSE.\n")
   }
@@ -31,8 +31,9 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   addr <- paste0("searchtext=", curlEscape(address))
   id <- paste0("&app_id=", curlEscape(app_id))
   code <- paste0("&app_code=", curlEscape(app_code))
+  gen <- "&gen=8"
+  request_url <- paste0(base, addr, id, code, gen)
   
-  request_url <- paste0(base, addr, id, code)
   message(request_url)
   
   json <- fromJSON(request_url, flatten = FALSE)
