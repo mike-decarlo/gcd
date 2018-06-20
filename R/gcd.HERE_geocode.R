@@ -38,7 +38,7 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
   
   json <- fromJSON(request_url, flatten = FALSE)
   
-  results <- data.frame(c(
+  results <- data.frame(t(c(
     address
     , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
     , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude
@@ -50,7 +50,7 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
     , json$Response$View$Result[[1]]$Location$Address$Street
     , json$Response$View$Result[[1]]$Location$Address$HouseNumber
     , json$Response$View$Result[[1]]$Location$Address$PostalCode
-    ))
+    )))
   
   colnames(results) <-  c("OrigAddr"
     , "Latitude"
