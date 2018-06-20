@@ -4,7 +4,7 @@
 \alias{gcd.HERE_geocode}
 \title{Get geocoding information using HERE.com Geocoder API}
 \usage{
-gcd.HERE_geocode(address, app_id, app_code, dev = FALSE)
+gcd.HERE_geocode(address, app_id, app_code, dev = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{address}{the latitude coordinate for the origin location}
@@ -14,6 +14,8 @@ gcd.HERE_geocode(address, app_id, app_code, dev = FALSE)
 \item{app_code}{the latitude coordinate for the destination location}
 
 \item{dev}{whether to use development or production site}
+
+\item{verbose}{Logical argument determining if messages are displayed.}
 }
 \value{
 location information for the entered address string:

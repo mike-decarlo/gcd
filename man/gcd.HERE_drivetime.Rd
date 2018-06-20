@@ -6,7 +6,7 @@
 \usage{
 gcd.HERE_drivetime(orgn_lat, orgn_lon, dest_lat, dest_lon, app_id, app_code,
   time_frmt = "hours", type = "fastest", trnsprt = "car",
-  trfc = "disabled", coord_typ = "rad", dev = FALSE)
+  trfc = "disabled", coord_typ = "rad", dev = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{orgn_lat}{the latitude coordinate for the origin location}
@@ -40,6 +40,8 @@ registration)}
 \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }}
 
 \item{dev}{whether to use development or production site}
+
+\item{verbose}{Logical argument determining if messages are displayed.}
 }
 \value{
 the travel time as specified between two locations
