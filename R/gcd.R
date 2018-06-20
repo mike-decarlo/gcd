@@ -44,8 +44,20 @@ gcd <- function(lon1, lat1, lon2, lat2, type = "deg", km = TRUE) {
   }
   
   return(list(
-    sphere = gcd.slc(lon1, lat1, lon2, lat2, km = km)
-    , haversine = gcd.haversine(lon1, lat1, lon2, lat2, km = km)
-    , vincenty = gcd.vincenty(lon1, lat1, lon2, lat2, km = km)
+    sphere = gcd.slc(lon1 = lon1
+                     , lat1 = lat1
+                     , lon2 = lon2
+                     , lat2 = lat2
+                     , km = km)
+    , haversine = gcd.haversine(lon1 = lon1
+                                , lat1 = lat1
+                                , lon2 = lon2
+                                , lat2 = lat2
+                                , km = km)
+    , vincenty = gcd.vincenty(lon1 = lon1
+                              , lat1 = lat1
+                              , lon2 = lon2
+                              , lat2 = lat2
+                              , km = km)
   ))
 }
