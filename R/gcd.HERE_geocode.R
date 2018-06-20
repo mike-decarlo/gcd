@@ -100,6 +100,8 @@ gcd.HERE_geocode <- function(address, app_id, app_code, dev = FALSE) {
     r <- c(r, NA)
   }
   
+  results <- data.frame(t(r))
+  
   colnames(results) <-  c("OrigAddr"
     , "Latitude"
     , "Longitude"
