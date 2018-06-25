@@ -37,7 +37,7 @@
 
 gcd.HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
   , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
-  , trfc = "disabled", coord_typ = "rad", dev = FALSE, verbose = FALSE) {
+  , trfc = "disabled", coord_typ = "deg", dev = FALSE, verbose = FALSE) {
   
   if (dev == TRUE) {
     base <- "https://route.cit.api.here.com/routing/7.2/calculateroute.json?"
