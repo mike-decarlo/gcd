@@ -121,26 +121,26 @@ for ellipsoids.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>gcd</span>(<span class='no'>lon1</span>, <span class='no'>lat1</span>, <span class='no'>lon2</span>, <span class='no'>lat2</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"deg"</span>, <span class='kw'>km</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>gcd</span>(<span class='no'>lat1</span>, <span class='no'>lon1</span>, <span class='no'>lat2</span>, <span class='no'>lon2</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"deg"</span>, <span class='kw'>km</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>lon1</th>
-      <td><p>the longitude as radians of the first point</p></td>
-    </tr>
-    <tr>
       <th>lat1</th>
       <td><p>the latitude as radians of the first point</p></td>
     </tr>
     <tr>
-      <th>lon2</th>
-      <td><p>the longitude as radians of the second point</p></td>
+      <th>lon1</th>
+      <td><p>the longitude as radians of the first point</p></td>
     </tr>
     <tr>
       <th>lat2</th>
       <td><p>the latitude as radians of the second point</p></td>
+    </tr>
+    <tr>
+      <th>lon2</th>
+      <td><p>the longitude as radians of the second point</p></td>
     </tr>
     <tr>
       <th>type</th>
@@ -163,7 +163,7 @@ miles (FALSE)</p></td>
 
 <span class='co'># Obtain measures of distnace</span>
 <span class='no'>gcd.mi</span> <span class='kw'>&lt;-</span> <span class='fu'>gcd</span>(<span class='kw'>lon1</span> <span class='kw'>=</span> <span class='no'>deg.lon</span>[<span class='fl'>1</span>:<span class='fl'>500</span>], <span class='kw'>lat1</span> <span class='kw'>=</span> <span class='no'>deg.lat</span>[<span class='fl'>1</span>:<span class='fl'>500</span>]
-  , <span class='kw'>lon2</span> <span class='kw'>=</span> <span class='no'>deg.lon</span>[<span class='fl'>501</span>:<span class='fl'>1000</span>], <span class='kw'>lat2</span> <span class='kw'>=</span> <span class='no'>deg.lat</span>[<span class='fl'>501</span>:<span class='fl'>1000</span>], <span class='kw'>km</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div></pre>
+  , <span class='kw'>lon2</span> <span class='kw'>=</span> <span class='no'>deg.lon</span>[<span class='fl'>501</span>:<span class='fl'>1000</span>], <span class='kw'>lat2</span> <span class='kw'>=</span> <span class='no'>deg.lat</span>[<span class='fl'>501</span>:<span class='fl'>1000</span>], <span class='kw'>km</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
