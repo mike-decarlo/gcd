@@ -29,8 +29,6 @@
 #'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
 
 gcd <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
-  
-  options(warn = -1)
   if (type == "deg") {
     lon1 <- gcd.rad(lon1)
     lon2 <- gcd.rad(lon2)
@@ -65,5 +63,4 @@ gcd <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
                               , type = "rad"
                               , km = km)
   ))
-  options(warn = 0)
 }
