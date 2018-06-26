@@ -16,4 +16,12 @@
 #' rad <- runif(1000, -180, 180) * pi / 180
 #' deg <- gcd.deg(rad)
 
-gcd.deg <- function(rad) return(rad * 180 / pi)
+gcd.deg <- function(rad) {
+    options(warn = -1)
+  if (abs(rad) <= 2 * pi) {
+    options(warn = 0)
+    return(rad * 180 / pi)
+  } else {
+    stop("Radian value must not exceed 2π.\n")
+  }
+}

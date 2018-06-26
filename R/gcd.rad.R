@@ -15,4 +15,12 @@
 #' deg <- runif(1000, -180, 180)
 #' rad <- gcd.rad(deg)
 
-gcd.rad <- function(deg) return(deg * pi / 180)
+gcd.rad <- function(deg) {
+    options(warn = -1)
+  if (abs(deg) <= 180) {
+    options(warn = 0)
+    return(deg * pi / 180)
+  } else {
+      stop("Degree value must be between 180 and -180.\n")
+  }
+}
