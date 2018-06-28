@@ -1,6 +1,6 @@
 Package: gcd
 Version: 0.0.2.2
-Date: 2018-06-20
+Date: 2018-06-28
 Title: Great Circle Distance (GCD)
 Authors@R: person("Mike", "DeCarlo", email = "decarlo.michael.j@gmail.com", role = c("aut", "cre"))
 Author: Mike DeCarlo [aut, cre]
@@ -13,8 +13,8 @@ Description: The {gcd} package for R contains several tools for working with lat
   -Vincenty inverse formula for ellipsoids (vincenty): uses ellipsoid shape with Earth's polar radius and equatorial radius Using these methods, the {gcd} package allows users to make easy measurements from place to place on the Earth's surface in km or miles.
   Additionally, the {gcd} package now includes a funtion to calculate the drive time between two points, as radians or degrees, using the HERE.com Routing API.
 License: file LICENSE
-URL: https://github.com/wolfm4ne/gcd
-BugReports: https://github.com/wolfm4ne/gcd
+URL: https://github.com/mike-decarlo/gcd
+BugReports: https://github.com/mike-decarlo/gcd
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1.9000
