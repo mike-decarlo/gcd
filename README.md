@@ -27,7 +27,7 @@ Now that R is setup (with or without RStudio) and the {devtools} package is inst
 
 ## Authors
 
-* **Mike DeCarlo** - *Author, Maintainer* - [wolfm4ne](https://github.com/wolfm4ne)
+* **Mike DeCarlo** - *Author, Maintainer* - [mike-decarlo](https://github.com/mike-decarlo)
 
 ## License
 
