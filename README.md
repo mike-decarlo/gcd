@@ -1,4 +1,5 @@
 # gcd
+[![Travis-CI Build Status](https://travis-ci.org/mike-decarlo/gcd.svg?branch=master)](https://travis-ci.org/mike-decarlo/gcd) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mike-decarlo/gcd?branch=master&svg=true)](https://ci.appveyor.com/project/mike-decarlo/gcd)
 
 The {gcd} package for R contains several tools for working with latitude and longitude values and obtaining estimated distances between points. The name of the package comes from the term "great circle distance" used to describe distances on the surface of the "Great Circle" (Earth). There are a few different methods for estimating the distance with varying trade-offs of efficiency vs. accuracy.
 - Spherical Law of Cosines (slc): assumes spherical shape; sensitive to very close distances

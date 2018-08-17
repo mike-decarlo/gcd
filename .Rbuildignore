@@ -5,3 +5,5 @@
 ^\.git$
 ^_pkgdown\.yml$
 ^docs$
+^\.travis\.yml$
+^appveyor\.yml$
