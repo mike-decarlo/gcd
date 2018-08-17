@@ -2,8 +2,7 @@
 % Please edit documentation in R/gcd.slc.R
 \name{gcd.slc}
 \alias{gcd.slc}
-\title{Calculates the distance between geocoordinates using the Spherical Law of
-Cosines (SLC)}
+\title{Calculates distance between geocoordinates: Spherical Law of Cosines (SLC)}
 \usage{
 gcd.slc(lat1, lon1, lat2, lon2, type = "deg", km = TRUE)
 }

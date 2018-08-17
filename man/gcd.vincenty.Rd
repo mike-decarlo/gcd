@@ -2,8 +2,8 @@
 % Please edit documentation in R/gcd.vincenty.R
 \name{gcd.vincenty}
 \alias{gcd.vincenty}
-\title{Calculates the distance between geocoordinates using the Vincenty inverse
-formula for ellipsoids}
+\title{Calculates distance between geocoordinates: Vincenty inverse formula for
+  ellipsoids}
 \usage{
 gcd.vincenty(lat1, lon1, lat2, lon2, type = "deg", km = TRUE)
 }

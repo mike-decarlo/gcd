@@ -2,7 +2,7 @@
 % Please edit documentation in R/gcd.haversine.R
 \name{gcd.haversine}
 \alias{gcd.haversine}
-\title{Calculates the distance between geocoordinates using the Haversine formula}
+\title{Calculates distance between geocoordinates: Haversine formula}
 \usage{
 gcd.haversine(lat1, lon1, lat2, lon2, type = "deg", km = TRUE)
 }

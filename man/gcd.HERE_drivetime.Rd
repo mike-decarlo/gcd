@@ -4,9 +4,10 @@
 \alias{gcd.HERE_drivetime}
 \title{Get drive time in hours from HERE.com Routing API}
 \usage{
-gcd.HERE_drivetime(orgn_lat, orgn_lon, dest_lat, dest_lon, app_id, app_code,
-  time_frmt = "hours", type = "fastest", trnsprt = "car",
-  trfc = "disabled", coord_typ = "deg", dev = FALSE, verbose = FALSE)
+gcd.HERE_drivetime(orgn_lat, orgn_lon, dest_lat, dest_lon, app_id,
+  app_code, time_frmt = "hours", type = "fastest", trnsprt = "car",
+  trfc = "disabled", coord_typ = "deg", dev = FALSE,
+  verbose = FALSE)
 }
 \arguments{
 \item{orgn_lat}{the latitude coordinate for the origin location}

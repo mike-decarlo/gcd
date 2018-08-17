@@ -1,5 +1,5 @@
-#' Calculates the distance between geocoordinates using the Vincenty inverse
-#' formula for ellipsoids
+#' Calculates distance between geocoordinates: Vincenty inverse formula for
+#'   ellipsoids
 #' 
 #' The function \code{"gcd.vincenty"} takes inputs of two sets of coordinates
 #' in (radian values), one set fo reach location, and a boolean indicator of

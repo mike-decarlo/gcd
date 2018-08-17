@@ -2,8 +2,7 @@
 % Please edit documentation in R/gcd.R
 \name{gcd}
 \alias{gcd}
-\title{Calculates the distance between geocoordinates using the Spherical Law of
-Cosines, Haversine formula, and Vincenty inverse formula for ellipsoids.}
+\title{Calculates distance between geocoordinates: all methods}
 \usage{
 gcd(lat1, lon1, lat2, lon2, type = "deg", km = TRUE)
 }

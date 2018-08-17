@@ -1,5 +1,4 @@
-#' Calculates the distance between geocoordinates using the Spherical Law of
-#' Cosines, Haversine formula, and Vincenty inverse formula for ellipsoids.
+#' Calculates distance between geocoordinates: all methods
 #' 
 #' The function \code{"gcd"} takes inputs of two sets of coordinates
 #' in (degree values), one set fo reach location, and a boolean indicator of

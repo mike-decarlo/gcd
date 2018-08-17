@@ -4,7 +4,8 @@
 \alias{gcd.HERE_geocode}
 \title{Get geocoding information using HERE.com Geocoder API}
 \usage{
-gcd.HERE_geocode(address, app_id, app_code, dev = FALSE, verbose = FALSE)
+gcd.HERE_geocode(address, app_id, app_code, dev = FALSE,
+  verbose = FALSE)
 }
 \arguments{
 \item{address}{the latitude coordinate for the origin location}

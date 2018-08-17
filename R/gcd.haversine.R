@@ -1,4 +1,4 @@
-#' Calculates the distance between geocoordinates using the Haversine formula
+#' Calculates distance between geocoordinates: Haversine formula
 #' 
 #' The function \code{"gcd.haversine"} takes inputs of two sets of coordinates
 #' in (radian values), one set fo reach location, and a boolean indicator of

@@ -1,5 +1,4 @@
-#' Calculates the distance between geocoordinates using the Spherical Law of
-#' Cosines (SLC)
+#' Calculates distance between geocoordinates: Spherical Law of Cosines (SLC)
 #' 
 #' The function \code{"gcd.slc"} takes inputs of two sets of coordinates in
 #' (radian values), one set fo reach location, and a boolean indicator of
