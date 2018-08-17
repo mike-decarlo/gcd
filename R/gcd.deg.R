@@ -22,6 +22,6 @@ gcd.deg <- function(rad) {
     options(warn = 0)
     return(rad * 180 / pi)
   } else {
-    stop("Radian value must not exceed 2π.\n")
+    stop("Radian value must not exceed 2pi.\n")
   }
 }
