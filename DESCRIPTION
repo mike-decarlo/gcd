@@ -2,9 +2,9 @@ Package: gcd
 Version: 0.0.2.2
 Date: 2018-06-28
 Title: Great Circle Distance (GCD)
-Authors@R: person("Mike", "DeCarlo", email = "decarlo.michael.j@gmail.com", role = c("aut", "cre"))
+Authors@R: person("Mike", "DeCarlo", email = "mikedecarlo.rdev@gmail.com", role = c("aut", "cre"))
 Author: Mike DeCarlo [aut, cre]
-Maintainer: Mike DeCarlo <decarlo.michael.j@gmail.com>
+Maintainer: Mike DeCarlo <mikedecarlo.rdev@gmail.com>
 Depends: R (>= 3.4), jsonlite, RCurl
 Suggests:  
 Description: The {gcd} package for R contains several tools for working with latitude and longitude values and obtaining estimated distances between points. The name of the package comes from the term "great circle distance" used to describe distances on the surface of the "Great Circle" (Earth). There are a few different methods for estimating the distance with varying trade-offs of efficiency vs. accuracy.
