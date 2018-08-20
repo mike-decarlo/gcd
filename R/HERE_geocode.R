@@ -1,5 +1,5 @@
 #' Get geocoding information using HERE.com Geocoder API
-#' 
+#'
 #' \code{HERE_geocode} is designed to take an address
 #' string, and user app credentials. The function queries the HERE.com Geocoder
 #' API
@@ -128,12 +128,12 @@ HERE_geocode <- function(
     , "Longitude"
     , "Label"
     , "Country"
-    ," State"
+    , "State"
     , "County"
     , "City"
     , "Street"
     , "HouseNumber"
     , "PostalCode"
-    ) 
+    )
   return(results)
 }

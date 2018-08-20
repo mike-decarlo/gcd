@@ -1,5 +1,5 @@
 #' Converts degrees to radians
-#' 
+#'
 #' \code{to_rad} takes an input of a degree value and will
 #' convert it to a radian value by the formula:
 #' \code{radian = degree * pi / 180}

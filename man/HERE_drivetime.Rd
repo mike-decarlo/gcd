@@ -27,11 +27,11 @@ registration)}
 \item{time_frmt}{the user's preferred time format: \enumerate{ \item
 \code{"hours"} \item \code{"minutes"} \item \code{"seconds"} }}
 
-\item{type}{a method of deciding optimal travel route: \enumerate{ \item 
+\item{type}{a method of deciding optimal travel route: \enumerate{ \item
 \code{"fastest"} \item \code{"shortest"} }}
 
 \item{trnsprt}{a transportation method for the route: \enumerate{ \item
-\code{"car"} \item \code{"carHOV"} \item \code{"pedestrian"} \item 
+\code{"car"} \item \code{"carHOV"} \item \code{"pedestrian"} \item
 \code{"truck"} \item \code{"bicycle"} }}
 
 \item{trfc}{whether or not to factor in traffic: \enumerate{ \item

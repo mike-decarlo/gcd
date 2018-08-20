@@ -1,5 +1,5 @@
 #' Calculates distance between geocoordinates: all methods
-#' 
+#'
 #' \code{dist_all} takes inputs of two sets of coordinates
 #' in (degree values), one set fo reach location, and a boolean indicator of
 #' whether or not to return the results as kilometers (\code{km = TRUE}) or
@@ -19,7 +19,7 @@
 #' deg.lon <- runif(1000, -180, 180)
 #' # Latitude values range between 0 and +-90 degrees
 #' deg.lat <- runif(1000, -90, 90)
-#' 
+#'
 #' # Obtain measures of distnace
 #' gcd.mi <- dist_all(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
 #'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
@@ -30,7 +30,7 @@ dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
     lon2 <- to_rad(lon2)
     lat1 <- to_rad(lat1)
     lat2 <- to_rad(lat2)
-  } else if ( type == "rad") {
+  } else if (type == "rad") {
     lon1 <- lon1
     lon2 <- lon2
     lat1 <- lat1

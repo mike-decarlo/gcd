@@ -1,5 +1,5 @@
 #' Get drive time in hours from HERE.com Routing API
-#' 
+#'
 #' \code{HERE_drivetime} is designed to take degree or
 #' radian geocoordinates, user app credentials, and some other API inputs (set
 #' to defaults). The function queries the HERE.com Routing API \code{(https://
@@ -18,10 +18,10 @@
 #'   (requires registration)
 #' @param time_frmt the user's preferred time format: \enumerate{ \item
 #'   \code{"hours"} \item \code{"minutes"} \item \code{"seconds"} }
-#' @param type a method of deciding optimal travel route: \enumerate{ \item 
+#' @param type a method of deciding optimal travel route: \enumerate{ \item
 #'   \code{"fastest"} \item \code{"shortest"} }
 #' @param trnsprt a transportation method for the route: \enumerate{ \item
-#'   \code{"car"} \item \code{"carHOV"} \item \code{"pedestrian"} \item 
+#'   \code{"car"} \item \code{"carHOV"} \item \code{"pedestrian"} \item
 #'   \code{"truck"} \item \code{"bicycle"} }
 #' @param trfc whether or not to factor in traffic: \enumerate{ \item
 #'   \code{"disabled"} \item \code{"enabled"} }
@@ -66,16 +66,16 @@ HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
     message(request_url)
   }
   json <- fromJSON(request_url, flatten = FALSE)
-  travelTime <- json$response$route$summary$travelTime # in seconds
+  travel_time <- json$response$route$summary$travelTime # in seconds
   if (time_frmt == "seconds") {
     # do nothing, already in seconds
   } else if (time_frmt == "minutes") {
-    travelTime <- travelTime / 60 # convert to minutes
+    travel_time <- travel_time / 60 # convert to minutes
   } else if (time_frmt == "hours") {
-    travelTime <- travelTime / 3600 # convert to hours
+    travel_time <- travel_time / 3600 # convert to hours
   } else {
     message("Error: argument 'time_frmt' must have value 'hours', 'minutes', or
       'seconds'. Please enter a valid argument value for 'timefrmt'.")
   }
-  return(travelTime)
+  return(travel_time)
 }

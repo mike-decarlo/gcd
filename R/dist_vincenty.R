@@ -1,6 +1,6 @@
 #' Calculates distance between geocoordinates: Vincenty inverse formula for
 #'   ellipsoids
-#' 
+#'
 #' \code{dist_vincenty} takes inputs of two sets of coordinates
 #' in (radian values), one set fo reach location, and a boolean indicator of
 #' whether or not to return the results as kilometers (\code{km = TRUE}) or
@@ -36,7 +36,7 @@ dist_vincenty <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
     lon2 <- to_rad(lon2)
     lat1 <- to_rad(lat1)
     lat2 <- to_rad(lat2)
-  } else if ( type == "rad") {
+  } else if (type == "rad") {
     lon1 <- lon1
     lon2 <- lon2
     lat1 <- lat1
@@ -46,10 +46,10 @@ dist_vincenty <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   }
   a <- 6378137         # length of major axis of ellipsoid (radius at equator)
   b <- 6356752.314245  # length of major axis of ellipsoid (radius at poles)
-  f <- 1/298.257223563 # flattening of ellipsoid
+  f <- 1 / 298.257223563 # flattening of ellipsoid
   l <- lon2 - lon1 # difference in longitude
-  u1 <- atan( (1 - f) * tan(lat1)) # reduced latitude
-  u2 <- atan( (1 - f) * tan(lat2)) # reduced latitude
+  u1 <- atan((1 - f) * tan(lat1)) # reduced latitude
+  u2 <- atan((1 - f) * tan(lat2)) # reduced latitude
   sin_u1 <- sin(u1)
   cos_u1 <- cos(u1)
   sin_u2 <- sin(u2)
@@ -65,7 +65,7 @@ dist_vincenty <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   while (abs(lambda - lambda_p) > 1e-12 & iter_limit > 0) {
     sin_lambda <- sin(lambda)
     cos_lambda <- cos(lambda)
-    sin_sigma <- sqrt( (cos_u2 * sin_lambda) ^ 2
+    sin_sigma <- sqrt((cos_u2 * sin_lambda) ^ 2
                        + (cos_u1 * sin_u2 - sin_u1 * cos_u2 * cos_lambda) ^ 2)
     if (sin_sigma == 0) return(0) # Co-incident points
     cos_sigma <- sin_u1 * sin_u2 + cos_u1 * cos_u2 * cos_lambda
@@ -82,12 +82,13 @@ dist_vincenty <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   }
   if (iter_limit == 0) return(NA) # formula failed to converge
   u_sq <- cos_sq_alpha * (a ^ 2 - b ^ 2) / (b ^ 2)
-  a_ <- 1 + u_sq / 16384 * (4096 + u_sq * (-768 * u_sq * (320 - 175 * u_sq)))
-  b_ <- u_sq / 1024 * (256 + u_sq * (-128 + u_sq * (74 - 47 * u_sq)))
-  delta_sigma <- b_ * sin_sigma * (cos2_sigma_m + b_ / 4 * (cos_sigma
-    * (-1 + 2 * cos2_sigma_m ^ 2) - b_ / 6 * cos2_sigma_m
+  a_sub <- 1 + u_sq / 16384 * (4096 + u_sq * (-768 * u_sq * 
+                                                (320 - 175 * u_sq)))
+  b_sub <- u_sq / 1024 * (256 + u_sq * (-128 + u_sq * (74 - 47 * u_sq)))
+  delta_sigma <- b_sub * sin_sigma * (cos2_sigma_m + b_sub / 4 * (cos_sigma
+    * (-1 + 2 * cos2_sigma_m ^ 2) - b_sub / 6 * cos2_sigma_m
     * (-3 + 4 * sin_sigma ^ 2) * (-3 + 4 * cos2_sigma_m ^ 2)))
-  s <- b * a_ * (sigma - delta_sigma) / 1000
+  s <- b * a_sub * (sigma - delta_sigma) / 1000
   if (km == FALSE) {
     # If km == FALSE, then the desired answer should be in miles.
     # Convert `d` from km to miles by multipling by `0.621371`.
