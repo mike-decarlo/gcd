@@ -1,9 +1,9 @@
 #' Calculates distance between geocoordinates: all methods
 #' 
-#' The function \code{"gcd"} takes inputs of two sets of coordinates
+#' \code{dist_all} takes inputs of two sets of coordinates
 #' in (degree values), one set fo reach location, and a boolean indicator of
-#' whether or not to return the results as kilometers (\code{"km = TRUE"}) or
-#' miles (\code{"km = FALSE"}). The output is three distances using the methods
+#' whether or not to return the results as kilometers (\code{km = TRUE}) or
+#' miles (\code{km = FALSE}). The output is three distances using the methods
 #' of Spherical Law of Cosines, Haversine formula, and Vincenty inverse formula
 #' for ellipsoids.
 #' @param lat1 the latitude as radians of the first point
@@ -13,9 +13,6 @@
 #' @param type defaults to "deg", can also be "rad"
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
-#'   
-#' @export
-#' 
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
@@ -24,15 +21,15 @@
 #' deg.lat <- runif(1000, -90, 90)
 #' 
 #' # Obtain measures of distnace
-#' gcd.mi <- gcd(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
+#' gcd.mi <- dist_all(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
 #'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
-
-gcd <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
+#' @export
+dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   if (type == "deg") {
-    lon1 <- gcd.rad(lon1)
-    lon2 <- gcd.rad(lon2)
-    lat1 <- gcd.rad(lat1)
-    lat2 <- gcd.rad(lat2)
+    lon1 <- to_rad(lon1)
+    lon2 <- to_rad(lon2)
+    lat1 <- to_rad(lat1)
+    lat2 <- to_rad(lat2)
   } else if ( type == "rad") {
     lon1 <- lon1
     lon2 <- lon2

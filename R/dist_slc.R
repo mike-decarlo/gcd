@@ -1,8 +1,8 @@
 #' Calculates distance between geocoordinates: Spherical Law of Cosines (SLC)
 #' 
-#' The function \code{"gcd.slc"} takes inputs of two sets of coordinates in
+#' \code{dist_slc} takes inputs of two sets of coordinates in
 #' (radian values), one set fo reach location, and a boolean indicator of
-#' whether or not to return the results as kilometers (\code{"km = TRUE"}) or
+#' whether or not to return the results as kilometers (\code{km = TRUE}) or
 #' miles (\code{"km = FALSE"}). The output is the distance using the method
 #' of Spherical Law of Cosines, a basic distance between two points on the
 #' surface of a sphere.
@@ -13,9 +13,6 @@
 #' @param type defaults to "deg", can also be "rad"
 #' @param km boolean argument for whether to return results as km (TRUE) or
 #'   miles (FALSE)
-#'   
-#' @export
-#' 
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
@@ -24,21 +21,20 @@
 #' deg.lat <- runif(1000, -90, 90)
 #' 
 #' # Obtain measures of distnace
-#' sphere.mi <- gcd.slc(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
+#' sphere.mi <- dist_slc(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
 #'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
-
-gcd.slc <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
+#' @export
+dist_slc <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   for (i in c("lat1", "lon1", "lat2", "lon2")) {
     if (is.numeric(get(i)) == FALSE) {
       stop(paste0("Argument ", i, " must be numeric.\n"))
     }
   }
-  
   if (type == "deg") {
-    lon1 <- gcd.rad(lon1)
-    lon2 <- gcd.rad(lon2)
-    lat1 <- gcd.rad(lat1)
-    lat2 <- gcd.rad(lat2)
+    lon1 <- to_rad(lon1)
+    lon2 <- to_rad(lon2)
+    lat1 <- to_rad(lat1)
+    lat2 <- to_rad(lat2)
   } else if ( type == "rad") {
     lon1 <- lon1
     lon2 <- lon2
@@ -47,7 +43,6 @@ gcd.slc <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   } else {
     stop("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
   }
-  
   R <- 6371 # Earth's mean radius [km]
   d <- acos(sin(lat1) * sin(lat2) + cos(lat1)
             * cos(lat2) * cos(lon2 - lon1)) * R
