@@ -82,7 +82,7 @@ dist_vincenty <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   }
   if (iter_limit == 0) return(NA) # formula failed to converge
   u_sq <- cos_sq_alpha * (a ^ 2 - b ^ 2) / (b ^ 2)
-  a_sub <- 1 + u_sq / 16384 * (4096 + u_sq * (-768 * u_sq * 
+  a_sub <- 1 + u_sq / 16384 * (4096 + u_sq * (-768 * u_sq *
                                                 (320 - 175 * u_sq)))
   b_sub <- u_sq / 1024 * (256 + u_sq * (-128 + u_sq * (74 - 47 * u_sq)))
   delta_sigma <- b_sub * sin_sigma * (cos2_sigma_m + b_sub / 4 * (cos_sigma
