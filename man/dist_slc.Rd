@@ -24,7 +24,7 @@ miles (FALSE)}
 \code{dist_slc} takes inputs of two sets of coordinates in
 (radian values), one set fo reach location, and a boolean indicator of
 whether or not to return the results as kilometers (\code{km = TRUE}) or
-miles (\code{"km = FALSE"}). The output is the distance using the method
+miles (\code{km = FALSE}). The output is the distance using the method
 of Spherical Law of Cosines, a basic distance between two points on the
 surface of a sphere.
 }
