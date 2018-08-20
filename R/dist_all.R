@@ -38,21 +38,20 @@ dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   } else {
     stop("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
   }
-  
   return(list(
-    sphere = gcd.slc(lon1 = lon1
+    sphere = dist_slc(lon1 = lon1
                      , lat1 = lat1
                      , lon2 = lon2
                      , lat2 = lat2
                      , type = "rad"
                      , km = km)
-    , haversine = gcd.haversine(lon1 = lon1
+    , haversine = dist_haversine(lon1 = lon1
                                 , lat1 = lat1
                                 , lon2 = lon2
                                 , lat2 = lat2
                                 , type = "rad"
                                 , km = km)
-    , vincenty = gcd.vincenty(lon1 = lon1
+    , vincenty = dist_vincenty(lon1 = lon1
                               , lat1 = lat1
                               , lon2 = lon2
                               , lat2 = lat2
