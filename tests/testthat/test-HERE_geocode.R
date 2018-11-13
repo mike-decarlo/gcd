@@ -17,6 +17,6 @@ test_that("Returns dataframe of results", {
     , app_id = "zX8ajlObLPCYD2kaobj6"
     , app_code = "NvhoO2EZsmjnExdmJtgf6g"
     , dev = F
-    , verbose = T)
+    , verbose = F)
   expect_is(df, "data.frame")
 })
