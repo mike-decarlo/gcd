@@ -9,3 +9,14 @@ test_that("Errors when 'dev' is non-boolean", {
     , dev = "FOO"
     , verbose = T))
 })
+
+test_that("Returns dataframe of results", {
+  wh <- "1600 Pennsylvania Ave NW, Washington, DC 20500"
+  df <- HERE_geocode(
+    address = wh
+    , app_id = "zX8ajlObLPCYD2kaobj6"
+    , app_code = "NvhoO2EZsmjnExdmJtgf6g"
+    , dev = F
+    , verbose = T)
+  expect_is(df, "data.frame")
+})
