@@ -36,3 +36,9 @@ test_that("Returns equivalent value for equivalent deg and rad", {
 test_that("Error when 'type' is neither 'deg' or 'rad'", {
   expect_error(dist_slc(90, 70, 80, 80, type = "foo"))
 })
+
+test_that("Returns equivalent distance for kilometers", {
+  dist_mi <- dist_slc(90, 70, 80, 80, km = F)
+  dist_km <- dist_slc(90, 70, 80, 80, km = T)
+  expect_equal(dist_mi, 0.621371 * dist_km)
+})
