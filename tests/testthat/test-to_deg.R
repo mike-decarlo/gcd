@@ -2,7 +2,7 @@ context("test-to_deg")
 
 test_that("Errors when abs(rad) > 2pi", {
   expect_error(
-    to_deg(deg = 3 * pi)
+    to_deg(rad = 3 * pi)
   )
 })
 
