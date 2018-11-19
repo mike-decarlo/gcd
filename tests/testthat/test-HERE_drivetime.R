@@ -7,8 +7,8 @@ test_that("Errors when 'dev' is non-boolean", {
       , orgn_lon = -77.03653
       , dest_lat = 38.88349
       , dest_lon = -77.00588
-      , app_id = "zX8ajlObLPCYD2kaobj6"
-      , app_code = "NvhoO2EZsmjnExdmJtgf6g"
+      , app_id = Sys.getenv("HERE_APP")
+      , app_code = Sys.getenv("HERE_KEY")
       , time_frmt = "minutes"
       , type = "fastest"
       , trnsprt = "car"
