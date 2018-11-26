@@ -4,14 +4,17 @@
 \alias{HERE_geocode}
 \title{Get geocoding information using HERE.com Geocoder API}
 \usage{
-HERE_geocode(address, app_id, app_code, dev = FALSE, verbose = FALSE)
+HERE_geocode(address = NULL, app_id = NULL, app_code = NULL,
+  dev = FALSE, verbose = FALSE)
 }
 \arguments{
-\item{address}{the latitude coordinate for the origin location}
+\item{address}{an address as a stringn}
 
-\item{app_id}{the longitude coordinate for the origin location}
+\item{app_id}{the user's App ID for the HERE.com JavaScript/REST (requires
+registration)}
 
-\item{app_code}{the latitude coordinate for the destination location}
+\item{app_code}{the user's App Code for the HERE.com JavaScript/REST
+(requires registration)}
 
 \item{dev}{whether to use development or production site}
 
