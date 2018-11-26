@@ -7,6 +7,8 @@ The {gcd} package for R contains several tools for working with latitude and lon
 - Vincenty inverse formula for ellipsoids (vincenty): uses ellipsoid shape with Earth's polar radius and equatorial radius
 Using these methods, the {gcd} package allows users to make easy measurements from place to place on the Earth's surface in km or miles.
 
+Also in this package are functions to take advantage of the Google and HERE APIs that perform geocoding and routing analysis. From this geocoded cooordinates and a standard set of location components can be returned from a single address string. Additionally, the drive time (both) and distance (Google only) between two points can be retrieved.
+
 ## Getting Started
 
 
