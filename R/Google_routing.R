@@ -80,7 +80,7 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
     )
   }
 
-  if(length(destination) == 2) {
+  if (length(destination) == 2) {
     if (coordinate_type == "rad") {
       dest_lat <- to_deg(as.numeric(destination[1]))
       dest_lon <- to_deg(as.numeric(destination[2]))
@@ -106,7 +106,7 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
 
   if (mode == "transit") {
     if (!is.null(transit_mode)) {
-      transit_mode = paste0(
+      transit_mode <- paste0(
         "&transit_mode="
         , curlEscape(transit_mode)
       )
@@ -114,7 +114,7 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
       transit_mode <- ""
     }
     if (!is.null(transit_routing_preference)) {
-      transit_routing_preference = paste0(
+      transit_routing_preference <- paste0(
         "&transit_routing_preference="
         , curlEscape(transit_routing_preference)
       )
