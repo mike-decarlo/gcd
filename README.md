@@ -20,6 +20,12 @@ Some prerequisites to getting this product up and running in R:
 - Download and install the {devtools} package from CRAN
   - From R/RStudio console enter: <code>install.packages("devtools")</code>
 
+If planning to use Google's geocoding API services
+- https://developers.google.com/maps/documentation/
+
+If planning to use HERE"s geocoding API services
+- https://developer.here.com/documentation
+
 ### Installing
 
 Now that R is setup (with or without RStudio) and the {devtools} package is installed, it's possible to start downloading and installing R packages directly from Github. To download, install, and start using the {gcd} package follow the steps:
