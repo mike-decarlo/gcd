@@ -2,33 +2,31 @@
 % Please edit documentation in R/Google_geocode.R
 \name{Google_geocode}
 \alias{Google_geocode}
-\title{Get geocoding information using HERE.com Geocoder API}
+\title{Get geocoding information using Google Geocode API}
 \usage{
-Google_geocode(address, app_id, app_code, dev = FALSE, verbose = FALSE)
+Google_geocode(address = NULL, key = NULL, verbose = FALSE)
 }
 \arguments{
-\item{address}{the latitude coordinate for the origin location}
+\item{address}{an address as a string}
 
-\item{app_id}{the longitude coordinate for the origin location}
-
-\item{app_code}{the latitude coordinate for the destination location}
-
-\item{dev}{whether to use development or production site}
+\item{key}{the user's Google API key}
 
 \item{verbose}{Logical argument determining if messages are displayed.}
 }
 \value{
 location information for the entered address string:
-  OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
-  District, Street, HouseNumber, PostalCode
+  original_address, latitude, longitude, formatted_address, street_number
+  , route, locality (city), administrative_area_3 (district)
+  , administrative_area_2 (county), administrative_area_1 (state)
+  , country, postal_code
 }
 \description{
 \code{Google_geocode} is designed to take an address
-string, and user app credentials. The function queries the HERE.com Geocoder
-API
+  string, and user app key. The function queries the Google Geocode
+  API
 \code{
-  (https://developer.here.com/documentation/geocoder/topics/what-is.html)
+  (https://developers.google.com/maps/documentation/geocoding/start)
   }
-  and returns the drive time from the JSON output code. This geocoding
-  information from the JSON is originally returned as a dataframe.
+  and returns the various components from the JSON output code. This geocoding
+  information from the JSON is originally returned as a vector.
 }
