@@ -7,8 +7,8 @@
 Google_routing(origin = NULL, destination = NULL, key = NULL,
   mode = "driving", transit_mode = NULL,
   transit_routing_preference = NULL, time_format = "minutes",
-  distance_format = "customary", traffic_model = "best_guess",
-  coordinate_type = NULL, verbose = FALSE)
+  distance_format = "customary", coordinate_type = "deg",
+  verbose = FALSE)
 }
 \arguments{
 \item{origin}{the latitude coordinate for the origin location}
@@ -45,11 +45,6 @@ tram, light rail, and subway }}
 \item \code{"customary"}
 \item \code{"metric"}
 }}
-
-\item{traffic_model}{whether or not to factor in traffic: \enumerate{
-\item \code{"best_guess"}
-\item \code{"pessimistic"}
-\item \code{"optimistic"} }}
 
 \item{coordinate_type}{if using geocoordinates, whether they are in degrees or
 radians: \enumerate{ 

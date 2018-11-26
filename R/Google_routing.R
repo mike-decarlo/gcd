@@ -36,10 +36,6 @@
 #'   \item \code{"customary"}
 #'   \item \code{"metric"}
 #'   }
-#' @param traffic_model whether or not to factor in traffic: \enumerate{
-#'   \item \code{"best_guess"}
-#'   \item \code{"pessimistic"}
-#'   \item \code{"optimistic"} }
 #' @param coordinate_type if using geocoordinates, whether they are in degrees or
 #'   radians: \enumerate{ 
 #'   \item \code{"rad"}{ (radians)}
@@ -52,7 +48,7 @@
 Google_routing <- function(origin = NULL, destination = NULL, key = NULL
   , mode = "driving", transit_mode = NULL, transit_routing_preference = NULL
   , time_format = "minutes", distance_format = "customary"
-  , traffic_model = "best_guess", coordinate_type = NULL, verbose = FALSE) {
+  , coordinate_type = "deg", verbose = FALSE) {
   base <- "https://maps.googleapis.com/maps/api/directions/json?"
   key <- paste0("&key=", curlEscape(key))
 
@@ -141,21 +137,14 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
     , curlEscape(mode)
   )
 
-  departure_time <- paste0(
-    "&departure_time="
-    , synesis::posix.epoch(as.POSIXct(Sys.Date()))
-  )
-  
   request_url <- paste0(
     base
     , origin
     , destination
     , key
-    # , departure_time
     , mode
     , transit_mode
     , transit_routing_preference
-    # , traffic_model
   )
   if (verbose == TRUE) {
     message(request_url)
