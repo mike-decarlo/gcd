@@ -50,30 +50,71 @@ HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
           , 12
           , nchar(curlUnescape(address))
         )
-        , "lattitude" =
-          json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
-        , "longitude" =
-          json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude
-        , "formatted_address" =
-          json$Response$View$Result[[1]]$Location$Address$Label
-        , "street_number" =
-          json$Response$View$Result[[1]]$Location$Address$HouseNumber
-        , "route" =
-          json$Response$View$Result[[1]]$Location$Address$Street
-        , "neighborhood" = NA
-        , "sublocality" = NA
-        , "city" =
-          json$Response$View$Result[[1]]$Location$Address$City
-        , "district" =
-          json$Response$View$Result[[1]]$Location$Address$District
-        , "county" =
-          json$Response$View$Result[[1]]$Location$Address$County
-        , "state" =
-          json$Response$View$Result[[1]]$Location$Address$State
-        , "country" =
-          json$Response$View$Result[[1]]$Location$Address$Country
-        , "postal_code" =
-          json$Response$View$Result[[1]]$Location$Address$PostalCode
+        , "lattitude" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)
+            , NA
+            , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
+          )
+        , "longitude" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude)
+            , NA
+            , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude
+          )
+        , "formatted_address" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$Label)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$Label
+          )
+        , "street_number" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$HouseNumber)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$HouseNumber
+          )
+        , "route" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$Street)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$Street
+          )
+        , "neighborhood" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$neighborhood)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$neighborhood
+          )
+        , "sublocality" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$sublocality)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$sublocality
+          )
+        , "city" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$City)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$City
+          )
+        , "district" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$District)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$District
+          )
+        , "county" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$County)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$County
+          )
+        , "state" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$State)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$State
+          )
+        , "country" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$Country)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$Country
+          )
+        , "postal_code" = ifelse(
+            is.null(json$Response$View$Result[[1]]$Location$Address$PostalCode)
+            , NA
+            , json$Response$View$Result[[1]]$Location$Address$PostalCode
+          )
         )
       )
   } else {
