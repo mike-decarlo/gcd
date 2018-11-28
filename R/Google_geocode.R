@@ -28,6 +28,8 @@ Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
     message(request_url)
   }
   json <- fromJSON(request_url, flatten = FALSE)
+  types <- unlist(lapply(json$results$address_components[[1]]$types, `[[`, 1))
+  names <- unlist(lapply(json$results$address_components[[1]]$long_name, `[[`, 1))
   if (json$status == "OK") {
     return(c(
       "original_address" =  substr(
@@ -38,14 +40,56 @@ Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
       , "lattitude" = json$results$geometry$location[1]
       , "longitude" = json$results$geometry$location[2]
       , "formatted_address" = json$results$formatted_address
-      , "street_number" = json$results$address_components[[1]]$long_name[1]
-      , "route" = json$results$address_components[[1]]$long_name[2]
-      , "city" = json$results$address_components[[1]]$long_name[3]
-      , "district" = json$results$address_components[[1]]$long_name[4]
-      , "county" = json$results$address_components[[1]]$long_name[5]
-      , "state" = json$results$address_components[[1]]$long_name[6]
-      , "country" = json$results$address_components[[1]]$long_name[7]
-      , "postal_code" = json$results$address_components[[1]]$long_name[8]
+      , "street_number" = ifelse(
+        !is.na(match("street_number", types))
+        , names[which(types == "street_number")]
+        , NA
+        )
+      , "route" = ifelse(
+        !is.na(match("route", types))
+        , names[which(types == "route")]
+        , NA
+      )
+      , "neighborhood" = ifelse(
+        !is.na(match("neighborhood", types))
+        , names[which(types == "neighborhood")]
+        , NA
+      )
+      , "sublocality" = ifelse(
+        !is.na(match("political", types))
+        , names[which(types == "political")]
+        , NA
+      )
+      , "city" = ifelse(
+        !is.na(match("locality", types))
+        , names[which(types == "locality")]
+        , NA
+      )
+      , "district" = ifelse(
+        !is.na(match("administrative_area_3", types))
+        , names[which(types == "administrative_area_3")]
+        , NA
+      )
+      , "county" = ifelse(
+        !is.na(match("administrative_area_2", types))
+        , names[which(types == "administrative_area_2")]
+        , NA
+      )
+      , "state" = ifelse(
+        !is.na(match("administrative_area_1", types))
+        , names[which(types == "administrative_area_1")]
+        , NA
+      )
+      , "country" = ifelse(
+        !is.na(match("country", types))
+        , names[which(types == "country")]
+        , NA
+      )
+      , "postal_code" = ifelse(
+        !is.na(match("postal_code", types))
+        , names[which(types == "postal_code")]
+        , NA
+      )
       )
     )
   } else {
