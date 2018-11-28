@@ -66,18 +66,18 @@ Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
         , NA
       )
       , "district" = ifelse(
-        !is.na(match("administrative_area_3", types))
-        , names[which(types == "administrative_area_3")]
+        !is.na(match("administrative_area_level_3", types))
+        , names[which(types == "administrative_area_level_3")]
         , NA
       )
       , "county" = ifelse(
-        !is.na(match("administrative_area_2", types))
-        , names[which(types == "administrative_area_2")]
+        !is.na(match("administrative_area_level_2", types))
+        , names[which(types == "administrative_area_level_2")]
         , NA
       )
       , "state" = ifelse(
-        !is.na(match("administrative_area_1", types))
-        , names[which(types == "administrative_area_1")]
+        !is.na(match("administrative_area_level_1", types))
+        , names[which(types == "administrative_area_level_1")]
         , NA
       )
       , "country" = ifelse(
