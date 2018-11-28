@@ -37,7 +37,7 @@ Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
         , 9
         , nchar(curlUnescape(address))
         )
-      , "lattitude" = json$results$geometry$location[1]
+      , "latitude" = json$results$geometry$location[1]
       , "longitude" = json$results$geometry$location[2]
       , "formatted_address" = json$results$formatted_address
       , "street_number" = ifelse(

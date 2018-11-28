@@ -50,7 +50,7 @@ HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
           , 12
           , nchar(curlUnescape(address))
         )
-        , "lattitude" = ifelse(
+        , "latitude" = ifelse(
             is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)
             , NA
             , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
