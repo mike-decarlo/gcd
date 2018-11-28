@@ -60,6 +60,8 @@ HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
           json$Response$View$Result[[1]]$Location$Address$HouseNumber
         , "route" =
           json$Response$View$Result[[1]]$Location$Address$Street
+        , "neighborhood" = NA
+        , "sublocality" = NA
         , "city" =
           json$Response$View$Result[[1]]$Location$Address$City
         , "district" =
