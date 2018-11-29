@@ -1,6 +1,6 @@
 #' Get drive time in hours from Google.com Routing API
 #'
-#' \code{Google_routing} is designed to take degree or
+#' \code{Google_drivetime} is designed to take degree or
 #' radian geocoordinates or location names, user app credentials
 #' , and some other API inputs (set to defaults). The function queries the 
 #' Google Directions API \code{(
@@ -45,7 +45,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom RCurl curlEscape
 #' @export
-Google_routing <- function(origin = NULL, destination = NULL, key = NULL
+Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
   , mode = "driving", transit_mode = NULL, transit_routing_preference = NULL
   , time_format = "minutes", distance_format = "customary"
   , coordinate_type = "deg", verbose = FALSE) {
@@ -141,16 +141,16 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
     message(request_url)
   }
   json <- fromJSON(request_url, flatten = FALSE)
-  distance <- json$routes$legs[[1]]$distance$value # in meters
-  if (distance_format == "metric") {
-    distance <- distance / 1000
-  } else if (distance_format == "customary") {
-    distance <- distance / 1609.344
-  } else {
-    message("\nArgument 'time_format' must have value 'hours', 'minutes', or
-      'seconds'. Using default value of 'customary'.\n")
-    distance <- distance / 1609.344
-  }
+  # distance <- json$routes$legs[[1]]$distance$value # in meters
+  # if (distance_format == "metric") {
+  #   distance <- distance / 1000
+  # } else if (distance_format == "customary") {
+  #   distance <- distance / 1609.344
+  # } else {
+  #   message("\nArgument 'time_format' must have value 'hours', 'minutes', or
+  #     'seconds'. Using default value of 'customary'.\n")
+  #   distance <- distance / 1609.344
+  # }
   time <- json$routes$legs[[1]]$duration$value # in seconds
   if (time_format == "seconds") {
     # do nothing, already in seconds
@@ -163,5 +163,5 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
       'seconds'. Using default value of 'minutes'.\n")
     time <- time / 60
   }
-  c(distance, time)
+  time
 }
