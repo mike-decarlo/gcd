@@ -8,10 +8,10 @@
 #' is originally return in seconds. This function is designed to take an
 #' argument for the user preferred time (seconds, minutes, or hours) as a non-
 #' integer, numeric value (a number with decimals).
-#' @param orgn_lat the latitude coordinate for the origin location
-#' @param orgn_lon the longitude coordinate for the origin location
-#' @param dest_lat the latitude coordinate for the destination location
-#' @param dest_lon the longitude coordinate for the destination location
+#' @param origin a vector of length two (2), the latitude and longitude
+#'   coordinates of the origin location
+#' @param destination a vector of length two (2), latitude and longitude
+#'   coordinates of the destination location
 #' @param app_id the user's App ID for the HERE.com JavaScript/REST (requires
 #'   registration)
 #' @param app_code the user's App Code for the HERE.com JavaScript/REST
@@ -33,8 +33,8 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom RCurl curlEscape
 #' @export
-HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
-  , app_id, app_code, time_frmt = "hours", type = "fastest", trnsprt = "car"
+HERE_drivetime <- function(origin = NULL, destination = NULL, app_id = NULL
+  , app_code = NULL, time_frmt = "minutes", type = "fastest", trnsprt = "car"
   , trfc = "disabled", coord_typ = "deg", dev = FALSE, verbose = FALSE) {
   if (dev == TRUE) {
     base <- "https://route.cit.api.here.com/routing/7.2/calculateroute.json?"
@@ -45,23 +45,31 @@ HERE_drivetime <- function(orgn_lat, orgn_lon, dest_lat, dest_lon
       "Error: Argument 'dev' must be given value of either TRUE or FALSE.\n"
       )
   }
-  if (coord_typ == "rad") {
-    orgn_lat <- to_deg(orgn_lat)
-    orgn_lon <- to_deg(orgn_lon)
-    dest_lat <- to_deg(dest_lat)
-    dest_lon <- to_deg(dest_lon)
+  if (length(origin) != 2) {
+    stop("\nArgument 'origin' must be of length 2.\n")
+  } else if (length(destination) != 2) {
+    stop("\nArgument 'destination' must be of length 2.\n")
+  } else {
+    if (coord_typ == "rad") {
+      origin <- to_deg(origin)
+      destination <- to_deg(destination)
+    }
   }
   id <- paste0("&app_id=", curlEscape(app_id))
   code <- paste0("&app_code=", curlEscape(app_code))
-  wypnt0 <- paste0("waypoint0=", curlEscape(paste0(orgn_lat, ",", orgn_lon)))
-  wypnt1 <- paste0("&waypoint1=", curlEscape(paste0(dest_lat, ",", dest_lon)))
+  wypnt0 <- paste0(
+    "waypoint0="
+    , curlEscape(paste0(origin[1], ",", origin[2]))
+  )
+  wypnt1 <- paste0(
+    "&waypoint1="
+    , curlEscape(paste0(destination[1], ",", destination[2]))
+  )
   trfc <- paste0("traffic:", trfc)
   mode <- paste0(
     "&mode="
     , curlEscape(paste(type, trnsprt, trfc, sep = ";")))
-  departure <- "2018-01-17T22:00:00"
-  departure <- paste0("&departure=", curlEscape(departure))
-  request_url <- paste0(base, wypnt0, wypnt1, mode, id, code, departure)
+  request_url <- paste0(base, wypnt0, wypnt1, mode, id, code)
   if (verbose == TRUE) {
     message(request_url)
   }
