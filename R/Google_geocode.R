@@ -31,7 +31,7 @@ Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
   types <- unlist(lapply(json$results$address_components[[1]]$types, `[[`, 1))
   names <- unlist(lapply(json$results$address_components[[1]]$long_name, `[[`, 1))
   if (json$status == "OK") {
-    return(c(
+    return(unlist(c(
       "original_address" =  substr(
         curlUnescape(address)
         , 9
@@ -91,7 +91,7 @@ Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
         , NA
       )
       )
-    )
+    ))
   } else {
     stop(
       paste0(
