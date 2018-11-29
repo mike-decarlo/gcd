@@ -51,5 +51,5 @@ dist_slc <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
     # Convert `d` from km to miles by multipling by `0.621371`.
     d <- d * 0.621371
   }
-  return(d)
+  d
 }

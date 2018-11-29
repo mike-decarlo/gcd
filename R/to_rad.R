@@ -18,6 +18,6 @@ to_rad <- function(deg) {
     options(warn = 0)
     return(deg * pi / 180)
   } else {
-      stop("Degree value must be between 180 and -180.\n")
+    stop("Degree value must be between 180 and -180.\n")
   }
 }

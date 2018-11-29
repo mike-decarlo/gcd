@@ -123,15 +123,6 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
     }
   }
 
-  # if (!is.null(traffic_model)) {
-  #   traffic_model <- paste0(
-  #     "&traffic_model="
-  #     , curlEscape(traffic_model)
-  #   )
-  # } else {
-  #   traffic_model <- ""
-  # }
-
   mode <- paste0(
     "&mode="
     , curlEscape(mode)
@@ -172,5 +163,5 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
       'seconds'. Using default value of 'minutes'.\n")
     time <- time / 60
   }
-  return(c("distance" = distance, "time" = time))
+  c(distance, time)
 }

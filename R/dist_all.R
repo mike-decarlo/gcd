@@ -38,7 +38,7 @@ dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   } else {
     stop("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
   }
-  return(list(
+  list(
     sphere = dist_slc(lon1 = lon1
                      , lat1 = lat1
                      , lon2 = lon2
@@ -57,5 +57,5 @@ dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
                               , lat2 = lat2
                               , type = "rad"
                               , km = km)
-  ))
+  )
 }

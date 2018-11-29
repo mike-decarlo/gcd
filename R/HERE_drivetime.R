@@ -85,5 +85,5 @@ HERE_drivetime <- function(origin = NULL, destination = NULL, app_id = NULL
     message("Error: argument 'time_frmt' must have value 'hours', 'minutes', or
       'seconds'. Please enter a valid argument value for 'timefrmt'.")
   }
-  return(travel_time)
+  travel_time
 }
