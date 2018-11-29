@@ -85,8 +85,8 @@ Google_routing <- function(origin = NULL, destination = NULL, key = NULL
       dest_lat <- to_deg(as.numeric(destination[1]))
       dest_lon <- to_deg(as.numeric(destination[2]))
     } else if (coordinate_type == "deg") {
-      dest_lat <- as.numeric(origin[1])
-      dest_lon <- as.numeric(origin[2])
+      dest_lat <- as.numeric(destination[1])
+      dest_lon <- as.numeric(destination[2])
     } else if (!is.null(coordinate_type)) {
       stop(
         paste0(
