@@ -10,37 +10,56 @@ HERE_drivetime(origin = NULL, destination = NULL, app_id = NULL,
   dev = FALSE, verbose = FALSE)
 }
 \arguments{
-\item{origin}{a vector of length two (2), the latitude and longitude
+\item{origin}{a vector of length two (2); the latitude and longitude
 coordinates of the origin location}
 
-\item{destination}{a vector of length two (2), latitude and longitude
+\item{destination}{a vector of length two (2); latitude and longitude
 coordinates of the destination location}
 
-\item{app_id}{the user's App ID for the HERE.com JavaScript/REST (requires
-registration)}
-
-\item{app_code}{the user's App Code for the HERE.com JavaScript/REST
+\item{app_id}{a string; the user's App ID for the HERE.com JavaScript/REST
 (requires registration)}
 
-\item{time_frmt}{the user's preferred time format: \enumerate{ \item
-\code{"hours"} \item \code{"minutes"} \item \code{"seconds"} }}
+\item{app_code}{a string; the user's App Code for the HERE.com
+JavaScript/REST (requires registration)}
 
-\item{type}{a method of deciding optimal travel route: \enumerate{ \item
-\code{"fastest"} \item \code{"shortest"} }}
+\item{time_frmt}{a string; the user's preferred time format:
+\enumerate{
+\item \code{"hours"}
+\item \code{"minutes"}
+\item \code{"seconds"}
+}}
 
-\item{trnsprt}{a transportation method for the route: \enumerate{ \item
-\code{"car"} \item \code{"carHOV"} \item \code{"pedestrian"} \item
-\code{"truck"} \item \code{"bicycle"} }}
+\item{type}{a string; a method of deciding optimal travel route:
+\enumerate{
+\item \code{"fastest"}
+\item \code{"shortest"}
+}}
 
-\item{trfc}{whether or not to factor in traffic: \enumerate{ \item
-\code{"disabled"} \item \code{"enabled"} }}
+\item{trnsprt}{a string; a transportation method for the route:
+\enumerate{
+\item \code{"car"}
+\item \code{"carHOV"}
+\item \code{"pedestrian"}
+\item \code{"truck"}
+\item \code{"bicycle"}
+}}
 
-\item{coord_typ}{if the geocoordinates are in degrees or radians:
-\enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }}
+\item{trfc}{a string; whether or not to factor in traffic:
+\enumerate{
+\item \code{"disabled"}
+\item \code{"enabled"}
+}}
 
-\item{dev}{whether to use development or production site}
+\item{coord_typ}{a string; if the geocoordinates are in degrees or radians:
+\enumerate{
+\item \code{"rad"}{ (radians)}
+\item \code{"deg"}{ (degrees)}
+}}
 
-\item{verbose}{Logical argument determining if messages are displayed.}
+\item{dev}{a boolean; whether to use development or production site}
+
+\item{verbose}{a boolean; \code{TRUE} to display json webaddress,
+\code{FALSE} to not display json webaddress}
 }
 \value{
 the travel time as specified between two locations

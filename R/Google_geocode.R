@@ -8,9 +8,10 @@
 #'   }
 #'   and returns the various components from the JSON output code. This geocoding
 #'   information from the JSON is originally returned as a vector.
-#' @param address an address as a string
-#' @param key the user's Google API key
-#' @param verbose Logical argument determining if messages are displayed.
+#' @param address a string; the address to be queried for geocoded information.
+#' @param key a string; the user's Google API key
+#' @param verbose a boolean; \code{TRUE} to display json webaddress,
+#'   \code{FALSE} to not display json webaddress
 #' @return location information for the entered address string:
 #'   original_address, latitude, longitude, formatted_address, street_number
 #'   , route, locality (city), administrative_area_3 (district)

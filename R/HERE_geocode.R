@@ -8,13 +8,15 @@
 #'   }
 #'   and returns the drive time from the JSON output code. This geocoding
 #'   information from the JSON is originally returned as a dataframe.
-#' @param address an address as a stringn
-#' @param app_id the user's App ID for the HERE.com JavaScript/REST (requires
-#'   registration)
-#' @param app_code the user's App Code for the HERE.com JavaScript/REST
+#' @param address a string; the address to be queried for geocoded information.
+#' @param app_id a string; the user's App ID for the HERE.com JavaScript/REST
 #'   (requires registration)
-#' @param dev whether to use development or production site
-#' @param verbose Logical argument determining if messages are displayed.
+#' @param app_code a string; the user's App Code for the HERE.com
+#'   JavaScript/REST (requires registration)
+#' @param dev a boolean; \code{TRUE} to use the development app, \code{FALSE}
+#'   to use the production app
+#' @param verbose a boolean; \code{TRUE} to display json webaddress,
+#'   \code{FALSE} to not display json webaddress
 #' @return location information for the entered address string:
 #'   OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
 #'   District, Street, HouseNumber, PostalCode

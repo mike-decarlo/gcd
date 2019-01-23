@@ -8,27 +8,46 @@
 #' is originally return in seconds. This function is designed to take an
 #' argument for the user preferred time (seconds, minutes, or hours) as a non-
 #' integer, numeric value (a number with decimals).
-#' @param origin a vector of length two (2), the latitude and longitude
+#' @param origin a vector of length two (2); the latitude and longitude
 #'   coordinates of the origin location
-#' @param destination a vector of length two (2), latitude and longitude
+#' @param destination a vector of length two (2); latitude and longitude
 #'   coordinates of the destination location
-#' @param app_id the user's App ID for the HERE.com JavaScript/REST (requires
-#'   registration)
-#' @param app_code the user's App Code for the HERE.com JavaScript/REST
+#' @param app_id a string; the user's App ID for the HERE.com JavaScript/REST
 #'   (requires registration)
-#' @param time_frmt the user's preferred time format: \enumerate{ \item
-#'   \code{"hours"} \item \code{"minutes"} \item \code{"seconds"} }
-#' @param type a method of deciding optimal travel route: \enumerate{ \item
-#'   \code{"fastest"} \item \code{"shortest"} }
-#' @param trnsprt a transportation method for the route: \enumerate{ \item
-#'   \code{"car"} \item \code{"carHOV"} \item \code{"pedestrian"} \item
-#'   \code{"truck"} \item \code{"bicycle"} }
-#' @param trfc whether or not to factor in traffic: \enumerate{ \item
-#'   \code{"disabled"} \item \code{"enabled"} }
-#' @param coord_typ if the geocoordinates are in degrees or radians:
-#'   \enumerate{ \item \code{"rad"}{ (radians)} \item \code{"deg"}{ (degrees)} }
-#' @param dev whether to use development or production site
-#' @param verbose Logical argument determining if messages are displayed.
+#' @param app_code a string; the user's App Code for the HERE.com
+#'   JavaScript/REST (requires registration)
+#' @param time_frmt a string; the user's preferred time format:
+#'   \enumerate{
+#'   \item \code{"hours"}
+#'   \item \code{"minutes"}
+#'   \item \code{"seconds"}
+#'   }
+#' @param type a string; a method of deciding optimal travel route:
+#'   \enumerate{
+#'   \item \code{"fastest"}
+#'   \item \code{"shortest"}
+#'   }
+#' @param trnsprt a string; a transportation method for the route:
+#'   \enumerate{
+#'   \item \code{"car"}
+#'   \item \code{"carHOV"}
+#'   \item \code{"pedestrian"}
+#'   \item \code{"truck"}
+#'   \item \code{"bicycle"}
+#'   }
+#' @param trfc a string; whether or not to factor in traffic:
+#'   \enumerate{
+#'   \item \code{"disabled"}
+#'   \item \code{"enabled"}
+#'   }
+#' @param coord_typ a string; if the geocoordinates are in degrees or radians:
+#'   \enumerate{
+#'   \item \code{"rad"}{ (radians)}
+#'   \item \code{"deg"}{ (degrees)}
+#'   }
+#' @param dev a boolean; whether to use development or production site
+#' @param verbose a boolean; \code{TRUE} to display json webaddress,
+#'   \code{FALSE} to not display json webaddress
 #' @return the travel time as specified between two locations
 #' @importFrom jsonlite fromJSON
 #' @importFrom RCurl curlEscape

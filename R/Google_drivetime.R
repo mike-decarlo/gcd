@@ -9,38 +9,58 @@
 #' the drive time from the JSON output code. This drive time portion of the JSON
 #' is originally return in minutes. This function is designed to take an
 #' argument for the user preferred time (seconds, minutes, or hours).
-#' @param origin the latitude coordinate for the origin location
-#' @param destination the latitude coordinate for the destination location
-#' @param key the user's App Code for the Google.com JavaScript/REST
+#' @param origin  a string or vector of two numerics; if a location string,
+#'   this should be an address, if a vector of length two numerics this should
+#'   be the latitude and longitude coordinates for the origin location
+#' @param destination a string or vector of two numerics; if a location string,
+#'   this should be an address, if a vector of length two numerics this should
+#'   be the latitude and longitude coordinates for the destination location
+#' @param key a string; the user's App Code for the Google.com JavaScript/REST
 #'   (requires registration)
-#' @param mode a transportation method for the route: \enumerate{ \item
-#'   \code{"driving"} \item \code{"walking"} \item \code{"bicycling"} \item
-#'   \code{"transit"} }
-#' @param transit_mode a sub-type for \code{"transit"} otherwise should be
-#'   NULL: \enumerate{
+#' @param mode a string; a transportation method for the route:
+#'   \enumerate{
+#'   \item \code{"driving"}
+#'   \item \code{"walking"}
+#'   \item \code{"bicycling"}
+#'   \item \code{"transit"}
+#'   }
+#' @param transit_modea a string; sub-type for \code{"transit"} otherwise
+#'   should be NULL:
+#'   \enumerate{
 #'   \item \code{"bus"}: the calculated route should prefer travel by bus
 #'   \item \code{"subway"}: the calculated route should prefer travel by subway
 #'   \item \code{"train"}: the calculated route should prefer travel by train
 #'   \item \code{"tram"}: the calculated route should prefer travel by tram and
 #'   light rail
 #'   \item \code{"rail"}: the calculated route should prefer travel by train,
-#'   tram, light rail, and subway }
-#' @param transit_routing_preference specifies preferences for the
-#'   \code{"transit"}, otherwise should be NULL: \enumerate{
+#'   tram, light rail, and subway
+#'   }
+#' @param transit_routing_preference a string; specifies preferences for the
+#'   \code{"transit"}, otherwise should be NULL:
+#'   \enumerate{
 #'   \item \code{"less_walking"}
-#'   \item \code{"fewer_transfers"} }
-#' @param time_format the preferred time format for results: \enumerate{ \item
-#'   \code{"hours"} \item \code{"minutes"} \item \code{"seconds"} }
-#' @param distance_format the pregerred format for measuring distance:
+#'   \item \code{"fewer_transfers"}
+#'   }
+#' @param time_format a string; the preferred time format for results:
+#'   \enumerate{
+#'   \item \code{"hours"}
+#'   \item \code{"minutes"}
+#'   \item \code{"seconds"}
+#'   }
+#' @param distance_format a string; the pregerred format for measuring
+#'   distance:
 #'   \enumerate{
 #'   \item \code{"customary"}
 #'   \item \code{"metric"}
 #'   }
-#' @param coordinate_type if using geocoordinates, whether they are in degrees or
-#'   radians: \enumerate{ 
+#' @param coordinate_type a string; if using geocoordinates, whether they are
+#'   in degrees or radians:
+#'   \enumerate{ 
 #'   \item \code{"rad"}{ (radians)}
-#'   \item \code{"deg"}{ (degrees)} }
-#' @param verbose Logical argument determining if messages are displayed.
+#'   \item \code{"deg"}{ (degrees)}
+#'   }
+#' @param verbose a boolean; \code{TRUE} to display json webaddress,
+#'   \code{FALSE} to not display json webaddress
 #' @return the travel time and distance as specified between two locations
 #' @importFrom jsonlite fromJSON
 #' @importFrom RCurl curlEscape

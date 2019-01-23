@@ -7,11 +7,12 @@
 Google_geocode(address = NULL, key = NULL, verbose = FALSE)
 }
 \arguments{
-\item{address}{an address as a string}
+\item{address}{a string; the address to be queried for geocoded information.}
 
-\item{key}{the user's Google API key}
+\item{key}{a string; the user's Google API key}
 
-\item{verbose}{Logical argument determining if messages are displayed.}
+\item{verbose}{a boolean; \code{TRUE} to display json webaddress,
+\code{FALSE} to not display json webaddress}
 }
 \value{
 location information for the entered address string:

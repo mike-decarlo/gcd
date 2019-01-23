@@ -8,17 +8,19 @@ HERE_geocode(address = NULL, app_id = NULL, app_code = NULL,
   dev = FALSE, verbose = FALSE)
 }
 \arguments{
-\item{address}{an address as a stringn}
+\item{address}{a string; the address to be queried for geocoded information.}
 
-\item{app_id}{the user's App ID for the HERE.com JavaScript/REST (requires
-registration)}
-
-\item{app_code}{the user's App Code for the HERE.com JavaScript/REST
+\item{app_id}{a string; the user's App ID for the HERE.com JavaScript/REST
 (requires registration)}
 
-\item{dev}{whether to use development or production site}
+\item{app_code}{a string; the user's App Code for the HERE.com
+JavaScript/REST (requires registration)}
 
-\item{verbose}{Logical argument determining if messages are displayed.}
+\item{dev}{a boolean; \code{TRUE} to use the development app, \code{FALSE}
+to use the production app}
+
+\item{verbose}{a boolean; \code{TRUE} to display json webaddress,
+\code{FALSE} to not display json webaddress}
 }
 \value{
 location information for the entered address string:
