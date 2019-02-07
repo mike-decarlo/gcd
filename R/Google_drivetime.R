@@ -24,7 +24,7 @@
 #'   \item \code{"bicycling"}
 #'   \item \code{"transit"}
 #'   }
-#' @param transit_modea a string; sub-type for \code{"transit"} otherwise
+#' @param transit_mode a string; sub-type for \code{"transit"} otherwise
 #'   should be NULL:
 #'   \enumerate{
 #'   \item \code{"bus"}: the calculated route should prefer travel by bus

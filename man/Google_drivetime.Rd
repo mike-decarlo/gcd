@@ -30,6 +30,18 @@ be the latitude and longitude coordinates for the destination location}
 \item \code{"transit"}
 }}
 
+\item{transit_mode}{a string; sub-type for \code{"transit"} otherwise
+should be NULL:
+\enumerate{
+\item \code{"bus"}: the calculated route should prefer travel by bus
+\item \code{"subway"}: the calculated route should prefer travel by subway
+\item \code{"train"}: the calculated route should prefer travel by train
+\item \code{"tram"}: the calculated route should prefer travel by tram and
+light rail
+\item \code{"rail"}: the calculated route should prefer travel by train,
+tram, light rail, and subway
+}}
+
 \item{transit_routing_preference}{a string; specifies preferences for the
 \code{"transit"}, otherwise should be NULL:
 \enumerate{
@@ -60,18 +72,6 @@ in degrees or radians:
 
 \item{verbose}{a boolean; \code{TRUE} to display json webaddress,
 \code{FALSE} to not display json webaddress}
-
-\item{transit_modea}{a string; sub-type for \code{"transit"} otherwise
-should be NULL:
-\enumerate{
-\item \code{"bus"}: the calculated route should prefer travel by bus
-\item \code{"subway"}: the calculated route should prefer travel by subway
-\item \code{"train"}: the calculated route should prefer travel by train
-\item \code{"tram"}: the calculated route should prefer travel by tram and
-light rail
-\item \code{"rail"}: the calculated route should prefer travel by train,
-tram, light rail, and subway
-}}
 }
 \value{
 the travel time and distance as specified between two locations
