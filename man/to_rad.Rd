@@ -18,7 +18,7 @@ calculations in which the desired form of the coordinates is radians.
 }
 \examples{
 # Input list of degree values
-# Longitude values range between 0 and +-180 degrees
+# Longitude values range between -180 and +180
 deg <- runif(1000, -180, 180)
 rad <- to_rad(deg)
 }
