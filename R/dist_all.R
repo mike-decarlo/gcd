@@ -26,10 +26,10 @@
 #' @export
 dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   if (type == "deg") {
-    lon1 <- to_rad(lon1)
-    lon2 <- to_rad(lon2)
-    lat1 <- to_rad(lat1)
-    lat2 <- to_rad(lat2)
+    lon1 <- gcd::to_rad(lon1)
+    lon2 <- gcd::to_rad(lon2)
+    lat1 <- gcd::to_rad(lat1)
+    lat2 <- gcd::to_rad(lat2)
   } else if (type == "rad") {
     lon1 <- lon1
     lon2 <- lon2
@@ -39,23 +39,29 @@ dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
     stop("Error: argument 'type' must have value of 'deg' or 'rad'.\n")
   }
   list(
-    sphere = dist_slc(lon1 = lon1
-                     , lat1 = lat1
-                     , lon2 = lon2
-                     , lat2 = lat2
-                     , type = "rad"
-                     , km = km)
-    , haversine = dist_haversine(lon1 = lon1
-                                , lat1 = lat1
-                                , lon2 = lon2
-                                , lat2 = lat2
-                                , type = "rad"
-                                , km = km)
-    , vincenty = dist_vincenty(lon1 = lon1
-                              , lat1 = lat1
-                              , lon2 = lon2
-                              , lat2 = lat2
-                              , type = "rad"
-                              , km = km)
+    sphere = gcd::dist_slc(
+      lon1 = lon1
+      , lat1 = lat1
+      , lon2 = lon2
+      , lat2 = lat2
+      , type = "rad"
+      , km = km
+      )
+    , haversine = gcd::dist_haversine(
+      lon1 = lon1
+      , lat1 = lat1
+      , lon2 = lon2
+      , lat2 = lat2
+      , type = "rad"
+      , km = km
+      )
+    , vincenty = gcd::dist_vincenty(
+      lon1 = lon1
+      , lat1 = lat1
+      , lon2 = lon2
+      , lat2 = lat2
+      , type = "rad"
+      , km = km
+      )
   )
 }

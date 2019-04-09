@@ -31,10 +31,10 @@ dist_slc <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
     }
   }
   if (type == "deg") {
-    lon1 <- to_rad(lon1)
-    lon2 <- to_rad(lon2)
-    lat1 <- to_rad(lat1)
-    lat2 <- to_rad(lat2)
+    lon1 <- gcd::to_rad(lon1)
+    lon2 <- gcd::to_rad(lon2)
+    lat1 <- gcd::to_rad(lat1)
+    lat2 <- gcd::to_rad(lat2)
   } else if (type == "rad") {
     lon1 <- lon1
     lon2 <- lon2
