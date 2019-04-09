@@ -1,6 +1,6 @@
 Package: gcd
-Version: 0.0.3.4
-Date: 2019-1-23
+Version: 0.0.4.1.9001
+Date: 2019-4-09
 Title: Great Circle Distance (GCD)
 Authors@R: person("Mike", "DeCarlo", email = "mikedecarlo.rdev@gmail.com", role = c("aut", "cre"))
 Author: Mike DeCarlo [aut, cre]
