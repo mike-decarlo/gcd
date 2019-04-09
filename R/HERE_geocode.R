@@ -21,7 +21,7 @@
 #'   OrigAddr, Latitude, Longitude, Label, Country, State, County, City,
 #'   District, Street, HouseNumber, PostalCode
 #' @importFrom jsonlite fromJSON
-#' @importFrom RCurl curlEscape
+#' @importFrom RCurl curlEscape curlUnescape
 #' @export
 HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
   , dev = FALSE, verbose = FALSE) {
@@ -34,23 +34,23 @@ HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
       "Error: argument 'dev' must be given value of either TRUE or FALSE.\n"
       )
   }
-  address <- paste0("searchtext=", curlEscape(address))
-  id <- paste0("&app_id=", curlEscape(app_id))
-  code <- paste0("&app_code=", curlEscape(app_code))
+  address <- paste0("searchtext=", RCurl::curlEscape(address))
+  id <- paste0("&app_id=", RCurl::curlEscape(app_id))
+  code <- paste0("&app_code=", RCurl::curlEscape(app_code))
   gen <- "&gen=8"
   request_url <- paste0(base, address, id, code, gen)
   if (verbose == TRUE) {
     message(request_url)
   }
-  json <- fromJSON(request_url, flatten = FALSE)
+  json <- jsonlite::fromJSON(request_url, flatten = FALSE)
   if (!is.null(
     json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude[[1]]
     )) {
       return(c(
         "original_address" =  substr(
-          curlUnescape(address)
+          RCurl::curlUnescape(address)
           , 12
-          , nchar(curlUnescape(address))
+          , nchar(RCurl::curlUnescape(address))
         )
         , "latitude" = ifelse(
             is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)

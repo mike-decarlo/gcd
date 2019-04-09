@@ -74,25 +74,25 @@ HERE_drivetime <- function(origin = NULL, destination = NULL, app_id = NULL
       destination <- to_deg(destination)
     }
   }
-  id <- paste0("&app_id=", curlEscape(app_id))
-  code <- paste0("&app_code=", curlEscape(app_code))
+  id <- paste0("&app_id=", RCurl::curlEscape(app_id))
+  code <- paste0("&app_code=", RCurl::curlEscape(app_code))
   wypnt0 <- paste0(
     "waypoint0="
-    , curlEscape(paste0(origin[1], ",", origin[2]))
+    , RCurl::curlEscape(paste0(origin[1], ",", origin[2]))
   )
   wypnt1 <- paste0(
     "&waypoint1="
-    , curlEscape(paste0(destination[1], ",", destination[2]))
+    , RCurl::curlEscape(paste0(destination[1], ",", destination[2]))
   )
   trfc <- paste0("traffic:", trfc)
   mode <- paste0(
     "&mode="
-    , curlEscape(paste(type, trnsprt, trfc, sep = ";")))
+    , RCurl::curlEscape(paste(type, trnsprt, trfc, sep = ";")))
   request_url <- paste0(base, wypnt0, wypnt1, mode, id, code)
   if (verbose == TRUE) {
     message(request_url)
   }
-  json <- fromJSON(request_url, flatten = FALSE)
+  json <- jsonlite::fromJSON(request_url, flatten = FALSE)
   travel_time <- json$response$route$summary$travelTime # in seconds
   if (time_frmt == "seconds") {
     # do nothing, already in seconds

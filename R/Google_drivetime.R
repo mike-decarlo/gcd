@@ -70,7 +70,7 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
   , time_format = "minutes", distance_format = "customary"
   , coordinate_type = "deg", verbose = FALSE) {
   base <- "https://maps.googleapis.com/maps/api/directions/json?"
-  key <- paste0("&key=", curlEscape(key))
+  key <- paste0("&key=", RCurl::curlEscape(key))
 
   if (length(origin) == 2) {
     if (coordinate_type == "rad") {
@@ -88,9 +88,9 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
         )
       )
     }
-    origin <- paste0("origin=", curlEscape(paste0(orgn_lat, ",", orgn_lon)))
+    origin <- paste0("origin=", RCurl::curlEscape(paste0(orgn_lat, ",", orgn_lon)))
   } else if (length(origin) == 1) {
-    origin <- paste0("origin=", curlEscape(origin))
+    origin <- paste0("origin=", RCurl::curlEscape(origin))
   } else {
     stop(
       paste0(
@@ -118,17 +118,17 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
     }
     destination <- paste0(
       "&destination="
-      , curlEscape(paste0(dest_lat, ",", dest_lon))
+      , RCurl::curlEscape(paste0(dest_lat, ",", dest_lon))
       )
   } else if (length(destination) == 1) {
-    destination <- paste0("&destination=", curlEscape(destination))
+    destination <- paste0("&destination=", RCurl::curlEscape(destination))
   }
 
   if (mode == "transit") {
     if (!is.null(transit_mode)) {
       transit_mode <- paste0(
         "&transit_mode="
-        , curlEscape(transit_mode)
+        , RCurl::curlEscape(transit_mode)
       )
     } else {
       transit_mode <- ""
@@ -136,7 +136,7 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
     if (!is.null(transit_routing_preference)) {
       transit_routing_preference <- paste0(
         "&transit_routing_preference="
-        , curlEscape(transit_routing_preference)
+        , RCurl::curlEscape(transit_routing_preference)
       )
     } else {
       transit_routing_preference <- ""
@@ -145,7 +145,7 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
 
   mode <- paste0(
     "&mode="
-    , curlEscape(mode)
+    , RCurl::curlEscape(mode)
   )
 
   request_url <- paste0(
@@ -160,7 +160,7 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
   if (verbose == TRUE) {
     message(request_url)
   }
-  json <- fromJSON(request_url, flatten = FALSE)
+  json <- jsonlite::fromJSON(request_url, flatten = FALSE)
   # distance <- json$routes$legs[[1]]$distance$value # in meters
   # if (distance_format == "metric") {
   #   distance <- distance / 1000

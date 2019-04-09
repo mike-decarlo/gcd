@@ -18,25 +18,25 @@
 #'   , administrative_area_2 (county), administrative_area_1 (state)
 #'   , country, postal_code
 #' @importFrom jsonlite fromJSON
-#' @importFrom RCurl curlEscape
+#' @importFrom RCurl curlEscape curlUnescape
 #' @export
 Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
   base <- "https://maps.googleapis.com/maps/api/geocode/json?"
-  address <- paste0("address=", curlEscape(address))
-  key <- paste0("&key=", curlEscape(key))
+  address <- paste0("address=", RCurl::curlEscape(address))
+  key <- paste0("&key=", RCurl::curlEscape(key))
   request_url <- paste0(base, address, key)
   if (verbose == TRUE) {
     message(request_url)
   }
-  json <- fromJSON(request_url, flatten = FALSE)
+  json <- jsonlite::fromJSON(request_url, flatten = FALSE)
   types <- unlist(lapply(json$results$address_components[[1]]$types, `[[`, 1))
   names <- unlist(lapply(json$results$address_components[[1]]$long_name, `[[`, 1))
   if (json$status == "OK") {
     return(unlist(c(
       "original_address" =  substr(
-        curlUnescape(address)
+        RCurl::curlUnescape(address)
         , 9
-        , nchar(curlUnescape(address))
+        , nchar(RCurl::curlUnescape(address))
         )
       , "latitude" = json$results$geometry$location$lat
       , "longitude" = json$results$geometry$location$lng
