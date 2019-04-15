@@ -28,6 +28,6 @@ location information for the entered address string:
 \code{
   (https://developers.google.com/maps/documentation/geocoding/start)
   }
-  and returns the various components from the JSON output code. This geocoding
-  information from the JSON is originally returned as a vector.
+  and returns the various components from the JSON output code. This
+  geocoding information from the JSON is originally returned as a vector.
 }

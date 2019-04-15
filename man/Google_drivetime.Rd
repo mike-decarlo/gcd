@@ -65,7 +65,7 @@ distance:
 
 \item{coordinate_type}{a string; if using geocoordinates, whether they are
 in degrees or radians:
-\enumerate{ 
+\enumerate{
 \item \code{"rad"}{ (radians)}
 \item \code{"deg"}{ (degrees)}
 }}
@@ -79,7 +79,7 @@ the travel time and distance as specified between two locations
 \description{
 \code{Google_drivetime} is designed to take degree or
 radian geocoordinates or location names, user app credentials
-, and some other API inputs (set to defaults). The function queries the 
+, and some other API inputs (set to defaults). The function queries the
 Google Directions API \code{(
 https://developers.google.com/maps/documentation/directions/
 intro#DirectionsRequests)} and return
