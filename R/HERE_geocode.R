@@ -44,7 +44,7 @@ HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
   }
   json <- jsonlite::fromJSON(request_url, flatten = FALSE)
   if (!is.null(
-    json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude[[1]]
+  json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude[[1]]
     )) {
       return(c(
         "original_address" =  substr(
@@ -53,22 +53,27 @@ HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
           , nchar(RCurl::curlUnescape(address))
         )
         , "latitude" = ifelse(
-            is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude)
-            , NA
-            , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
+    is.null(
+    json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
+    )
+    , NA
+    , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Latitude
           )
         , "longitude" = ifelse(
-            is.null(json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude)
-            , NA
-            , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude
-          )
+    is.null(
+    json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude)
+    , NA
+    , json$Response$View$Result[[1]]$Location$NavigationPosition[[1]]$Longitude
+    )
         , "formatted_address" = ifelse(
             is.null(json$Response$View$Result[[1]]$Location$Address$Label)
             , NA
             , json$Response$View$Result[[1]]$Location$Address$Label
           )
         , "street_number" = ifelse(
-            is.null(json$Response$View$Result[[1]]$Location$Address$HouseNumber)
+            is.null(
+              json$Response$View$Result[[1]]$Location$Address$HouseNumber
+              )
             , NA
             , json$Response$View$Result[[1]]$Location$Address$HouseNumber
           )
@@ -78,12 +83,16 @@ HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
             , json$Response$View$Result[[1]]$Location$Address$Street
           )
         , "neighborhood" = ifelse(
-            is.null(json$Response$View$Result[[1]]$Location$Address$neighborhood)
+            is.null(
+              json$Response$View$Result[[1]]$Location$Address$neighborhood
+              )
             , NA
             , json$Response$View$Result[[1]]$Location$Address$neighborhood
           )
         , "sublocality" = ifelse(
-            is.null(json$Response$View$Result[[1]]$Location$Address$sublocality)
+            is.null(
+              json$Response$View$Result[[1]]$Location$Address$sublocality
+              )
             , NA
             , json$Response$View$Result[[1]]$Location$Address$sublocality
           )

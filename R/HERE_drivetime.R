@@ -70,8 +70,8 @@ HERE_drivetime <- function(origin = NULL, destination = NULL, app_id = NULL
     stop("\nArgument 'destination' must be of length 2.\n")
   } else {
     if (coord_typ == "rad") {
-      origin <- to_deg(origin)
-      destination <- to_deg(destination)
+      origin <- gcd::to_deg(origin)
+      destination <- gcd::to_deg(destination)
     }
   }
   id <- paste0("&app_id=", RCurl::curlEscape(app_id))

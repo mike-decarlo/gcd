@@ -6,8 +6,8 @@
 #' \code{
 #'   (https://developers.google.com/maps/documentation/geocoding/start)
 #'   }
-#'   and returns the various components from the JSON output code. This geocoding
-#'   information from the JSON is originally returned as a vector.
+#'   and returns the various components from the JSON output code. This
+#'   geocoding information from the JSON is originally returned as a vector.
 #' @param address a string; the address to be queried for geocoded information.
 #' @param key a string; the user's Google API key
 #' @param verbose a boolean; \code{TRUE} to display json webaddress,
@@ -30,7 +30,9 @@ Google_geocode <- function(address = NULL, key = NULL, verbose = FALSE) {
   }
   json <- jsonlite::fromJSON(request_url, flatten = FALSE)
   types <- unlist(lapply(json$results$address_components[[1]]$types, `[[`, 1))
-  names <- unlist(lapply(json$results$address_components[[1]]$long_name, `[[`, 1))
+  names <- unlist(
+    lapply(json$results$address_components[[1]]$long_name, `[[`, 1)
+    )
   if (json$status == "OK") {
     return(unlist(c(
       "original_address" =  substr(

@@ -2,7 +2,7 @@
 #'
 #' \code{Google_drivetime} is designed to take degree or
 #' radian geocoordinates or location names, user app credentials
-#' , and some other API inputs (set to defaults). The function queries the 
+#' , and some other API inputs (set to defaults). The function queries the
 #' Google Directions API \code{(
 #' https://developers.google.com/maps/documentation/directions/
 #' intro#DirectionsRequests)} and return
@@ -55,7 +55,7 @@
 #'   }
 #' @param coordinate_type a string; if using geocoordinates, whether they are
 #'   in degrees or radians:
-#'   \enumerate{ 
+#'   \enumerate{
 #'   \item \code{"rad"}{ (radians)}
 #'   \item \code{"deg"}{ (degrees)}
 #'   }
@@ -74,8 +74,8 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
 
   if (length(origin) == 2) {
     if (coordinate_type == "rad") {
-      orgn_lat <- to_deg(as.numeric(origin[[1]]))
-      orgn_lon <- to_deg(as.numeric(origin[[2]]))
+      orgn_lat <- gcd::to_deg(as.numeric(origin[[1]]))
+      orgn_lon <- gcd::to_deg(as.numeric(origin[[2]]))
     } else if (coordinate_type == "deg") {
       orgn_lat <- as.numeric(origin[[1]])
       orgn_lon <- as.numeric(origin[[2]])
@@ -88,7 +88,10 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
         )
       )
     }
-    origin <- paste0("origin=", RCurl::curlEscape(paste0(orgn_lat, ",", orgn_lon)))
+    origin <- paste0(
+      "origin="
+      , RCurl::curlEscape(paste0(orgn_lat, ",", orgn_lon))
+      )
   } else if (length(origin) == 1) {
     origin <- paste0("origin=", RCurl::curlEscape(origin))
   } else {
@@ -102,8 +105,8 @@ Google_drivetime <- function(origin = NULL, destination = NULL, key = NULL
 
   if (length(destination) == 2) {
     if (coordinate_type == "rad") {
-      dest_lat <- to_deg(as.numeric(destination[[1]]))
-      dest_lon <- to_deg(as.numeric(destination[[2]]))
+      dest_lat <- gcd::to_deg(as.numeric(destination[[1]]))
+      dest_lon <- gcd::to_deg(as.numeric(destination[[2]]))
     } else if (coordinate_type == "deg") {
       dest_lat <- as.numeric(destination[[1]])
       dest_lon <- as.numeric(destination[[2]])
