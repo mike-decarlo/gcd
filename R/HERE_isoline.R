@@ -103,9 +103,9 @@ HERE_isoline <- function(
   } else if (range_type == "time") {
     if (range_unit == "hrs") {
       range_val_n <- round(range_val * 3600, digits = 0)
-    } else if (range_val == "min") {
+    } else if (range_unit == "min") {
       range_val_n <- round(range_val * 60, digits = 0)
-    } else if (range_val == "sec") {
+    } else if (range_unit == "sec") {
       range_val_n <- round(range_val, digits = 0)
     } else {
       stop(
@@ -115,6 +115,8 @@ HERE_isoline <- function(
         )
       )
     }
+  } else {
+    stop("\nRange type must be either 'distance' or 'time'.\n")
   }
   id <- paste0("&app_id=", RCurl::curlEscape(app_id))
   code <- paste0("&app_code=", RCurl::curlEscape(app_code))
