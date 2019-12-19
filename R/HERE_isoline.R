@@ -1,6 +1,8 @@
 #' Get polygon line drawing output from HERE.com
 #'
-#' \code{HERE_isoline} is designed to take
+#' \code{HERE_isoline} is designed to take an origin lat-lon and range
+#'   constraint and return a data.frame with polygon isoline coordinates for
+#'   making polygon map shapes.
 #' @param app_id a string; the user's App ID for the HERE.com JavaScript/REST
 #'   (requires registration)
 #' @param app_code a string; the user's App Code for the HERE.com

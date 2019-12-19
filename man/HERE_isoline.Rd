@@ -74,5 +74,7 @@ coordinates of the origin location}
 the polygon data.frame
 }
 \description{
-\code{HERE_isoline} is designed to take
+\code{HERE_isoline} is designed to take an origin lat-lon and range
+  constraint and return a data.frame with polygon isoline coordinates for
+  making polygon map shapes.
 }
