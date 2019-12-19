@@ -171,5 +171,5 @@ HERE_isoline <- function(
     , "mode_tran" = mode_tran
     , "mode_traf" = mode_traf
   )
-  iso_df
+  as.data.frame(iso_df)
 }
