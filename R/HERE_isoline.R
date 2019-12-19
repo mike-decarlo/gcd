@@ -86,7 +86,7 @@ HERE_isoline <- function(
   if (range_type == "distance") {
     if (range_unit == "mi") {
       range_val_n <- round(range_val * 1609.34, digits = 0)
-    } else if(range_unit == "ft") {
+    } else if (range_unit == "ft") {
       range_val_n <- round(range_val * 0.3048, digits = 0)
     } else if (range_unit == "km") {
       range_val_n <- round(range_val * 1000, digits = 0)
