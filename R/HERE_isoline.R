@@ -159,7 +159,7 @@ HERE_isoline <- function(
   range <- rep(range_val, nrow(iso))
   polygon_order <- seq(1, nrow(iso))
   iso_df <- cbind(
-    "uid" = iso$uid
+    "uid" = uid
     , "origin_lat" = origin_lat
     , "origin_lon" = origin_lon
     , "polygon_order" = polygon_order
@@ -171,5 +171,5 @@ HERE_isoline <- function(
     , "mode_tran" = mode_tran
     , "mode_traf" = mode_traf
   )
-  as.data.frame(iso_df)
+  iso_df <- data.frame(iso_df, stringsAsFactors = F)
 }
