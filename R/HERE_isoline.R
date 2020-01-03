@@ -3,12 +3,14 @@
 #' \code{HERE_isoline} is designed to take an origin lat-lon and range
 #'   constraint and return a data.frame with polygon isoline coordinates for
 #'   making polygon map shapes.
+#' @param origin a vector of length two (2); the latitude and longitude
+#'   coordinates of the origin location
+#' @param app_api a string; the user's API Key Credentials for the HERE.com
+#'   JavaScript/REST (requires registration)
 #' @param app_id a string; the user's App ID for the HERE.com JavaScript/REST
 #'   (requires registration)
 #' @param app_code a string; the user's App Code for the HERE.com
 #'   JavaScript/REST (requires registration)
-#' @param origin a vector of length two (2); the latitude and longitude
-#'   coordinates of the origin location
 #' @param coord_type a string; if the geocoordinates are in degrees or radians:
 #'   \enumerate{
 #'   \item \code{"rad"}{ (radians)}
@@ -56,10 +58,10 @@
 #' @importFrom RCurl curlEscape
 #' @export
 HERE_isoline <- function(
-  app_id = NULL, app_code = NULL, origin = NULL, coord_type = "deg"
-  , mode_type = "fastest", mode_tran = "car", mode_traf = "disabled"
-  , range_type = "distance", range_unit = "mi", range_val = NULL
-  , dev = FALSE, verbose = FALSE
+  origin = NULL, app_api = NULL, app_id = NULL, app_code = NULL
+  , coord_type = "deg", mode_type = "fastest", mode_tran = "car"
+  , mode_traf = "disabled", range_type = "distance", range_unit = "mi"
+  , range_val = NULL, dev = FALSE, verbose = FALSE
 ) {
   if (dev == TRUE) {
     base <- paste0(
@@ -67,10 +69,17 @@ HERE_isoline <- function(
       , "routing/7.2/calculateisoline.json?"
     )
   } else if (dev == FALSE) {
-    base <- paste0(
-      "https://isoline.route.api.here.com/"
-      , "routing/7.2/calculateisoline.json?"
-    )
+    if (!is.null(app_api)) {
+      base <- paste0(
+        "https://isoline.route.ls.hereapi.com/"
+        , "routing/7.2/calculateisoline.json?"
+      )
+    } else {
+      base <- paste0(
+        "https://isoline.route.api.here.com/"
+        , "routing/7.2/calculateisoline.json?"
+      )
+    }
   } else {
     stop(
       "Error: Argument 'dev' must be given value of either TRUE or FALSE.\n"
@@ -118,13 +127,18 @@ HERE_isoline <- function(
   } else {
     stop("\nRange type must be either 'distance' or 'time'.\n")
   }
-  id <- paste0("&app_id=", RCurl::curlEscape(app_id))
-  code <- paste0("&app_code=", RCurl::curlEscape(app_code))
+  if (!is.null(app_api)) {
+    app <- paste0("apiKey=", RCurl::curlEscape(app_api))
+  } else {
+    id <- paste0("app_id=", RCurl::curlEscape(app_id))
+    code <- paste0("&app_code=", RCurl::curlEscape(app_code))
+    app <- paste0(id, code)
+  }
   mode <- paste0("&mode=", mode_type, ";", mode_tran, ";traffic:", mode_traf)
   range_t <- paste0("&rangetype=", range_type)
   start <- paste0("&start=geo!", origin[1], ",", origin[2])
   range <- paste0("&range=", range_val_n)
-  request_url <- paste0(base, id, code, mode, range_t, start, range)
+  request_url <- paste0(base, app, mode, range_t, start, range)
   if (verbose == TRUE) {
     message(request_url)
   }

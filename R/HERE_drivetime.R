@@ -12,6 +12,8 @@
 #'   coordinates of the origin location
 #' @param destination a vector of length two (2); latitude and longitude
 #'   coordinates of the destination location
+#' @param app_api a string; the user's API Key Credentials for the HERE.com
+#'   JavaScript/REST (requires registration)
 #' @param app_id a string; the user's App ID for the HERE.com JavaScript/REST
 #'   (requires registration)
 #' @param app_code a string; the user's App Code for the HERE.com
@@ -52,13 +54,28 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom RCurl curlEscape
 #' @export
-HERE_drivetime <- function(origin = NULL, destination = NULL, app_id = NULL
-  , app_code = NULL, time_frmt = "minutes", type = "fastest", trnsprt = "car"
-  , trfc = "disabled", coord_typ = "deg", dev = FALSE, verbose = FALSE) {
+HERE_drivetime <- function(origin = NULL, destination = NULL, app_api = NULL
+  , app_id = NULL, app_code = NULL, time_frmt = "minutes", type = "fastest"
+  , trnsprt = "car", trfc = "disabled", coord_typ = "deg", dev = FALSE
+  , verbose = FALSE) {
   if (dev == TRUE) {
     base <- "https://route.cit.api.here.com/routing/7.2/calculateroute.json?"
   } else if (dev == FALSE) {
-    base <- "https://route.api.here.com/routing/7.2/calculateroute.json?"
+    if (!is.null(app_api)) {
+      base <- paste0(
+        "https://route.ls.hereapi.com/"
+        , "routing/7.2/calculateroute.json?"
+      )
+      app <- paste0("&apiKey=", RCurl::curlEscape(app_api))
+    } else {
+      base <- paste0(
+        "https://route.api.here.com/"
+        , "routing/7.2/calculateroute.json?"
+      )
+      id <- paste0("&app_id=", RCurl::curlEscape(app_id))
+      code <- paste0("&app_code=", RCurl::curlEscape(app_code))
+      app <- paste0(id, code)
+    }
   } else {
     stop(
       "Error: Argument 'dev' must be given value of either TRUE or FALSE.\n"
@@ -74,21 +91,19 @@ HERE_drivetime <- function(origin = NULL, destination = NULL, app_id = NULL
       destination <- gcd::to_deg(destination)
     }
   }
-  id <- paste0("&app_id=", RCurl::curlEscape(app_id))
-  code <- paste0("&app_code=", RCurl::curlEscape(app_code))
   wypnt0 <- paste0(
-    "waypoint0="
+    "waypoint0=geo!"
     , RCurl::curlEscape(paste0(origin[1], ",", origin[2]))
   )
   wypnt1 <- paste0(
-    "&waypoint1="
+    "&waypoint1=geo!"
     , RCurl::curlEscape(paste0(destination[1], ",", destination[2]))
   )
   trfc <- paste0("traffic:", trfc)
   mode <- paste0(
     "&mode="
     , RCurl::curlEscape(paste(type, trnsprt, trfc, sep = ";")))
-  request_url <- paste0(base, wypnt0, wypnt1, mode, id, code)
+  request_url <- paste0(base, wypnt0, wypnt1, mode, app)
   if (verbose == TRUE) {
     message(request_url)
   }

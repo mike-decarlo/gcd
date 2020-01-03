@@ -4,10 +4,10 @@
 \alias{HERE_drivetime}
 \title{Get drive time in hours from HERE.com Routing API}
 \usage{
-HERE_drivetime(origin = NULL, destination = NULL, app_id = NULL,
-  app_code = NULL, time_frmt = "minutes", type = "fastest",
-  trnsprt = "car", trfc = "disabled", coord_typ = "deg",
-  dev = FALSE, verbose = FALSE)
+HERE_drivetime(origin = NULL, destination = NULL, app_api = NULL,
+  app_id = NULL, app_code = NULL, time_frmt = "minutes",
+  type = "fastest", trnsprt = "car", trfc = "disabled",
+  coord_typ = "deg", dev = FALSE, verbose = FALSE)
 }
 \arguments{
 \item{origin}{a vector of length two (2); the latitude and longitude
@@ -15,6 +15,9 @@ coordinates of the origin location}
 
 \item{destination}{a vector of length two (2); latitude and longitude
 coordinates of the destination location}
+
+\item{app_api}{a string; the user's API Key Credentials for the HERE.com
+JavaScript/REST (requires registration)}
 
 \item{app_id}{a string; the user's App ID for the HERE.com JavaScript/REST
 (requires registration)}

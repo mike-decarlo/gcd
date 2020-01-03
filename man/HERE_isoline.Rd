@@ -4,20 +4,24 @@
 \alias{HERE_isoline}
 \title{Get polygon line drawing output from HERE.com}
 \usage{
-HERE_isoline(app_id = NULL, app_code = NULL, origin = NULL,
-  coord_type = "deg", mode_type = "fastest", mode_tran = "car",
-  mode_traf = "disabled", range_type = "distance", range_unit = "mi",
-  range_val = NULL, dev = FALSE, verbose = FALSE)
+HERE_isoline(origin = NULL, app_api = NULL, app_id = NULL,
+  app_code = NULL, coord_type = "deg", mode_type = "fastest",
+  mode_tran = "car", mode_traf = "disabled", range_type = "distance",
+  range_unit = "mi", range_val = NULL, dev = FALSE,
+  verbose = FALSE)
 }
 \arguments{
+\item{origin}{a vector of length two (2); the latitude and longitude
+coordinates of the origin location}
+
+\item{app_api}{a string; the user's API Key Credentials for the HERE.com
+JavaScript/REST (requires registration)}
+
 \item{app_id}{a string; the user's App ID for the HERE.com JavaScript/REST
 (requires registration)}
 
 \item{app_code}{a string; the user's App Code for the HERE.com
 JavaScript/REST (requires registration)}
-
-\item{origin}{a vector of length two (2); the latitude and longitude
-coordinates of the origin location}
 
 \item{coord_type}{a string; if the geocoordinates are in degrees or radians:
 \enumerate{

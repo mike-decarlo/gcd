@@ -9,6 +9,8 @@
 #'   and returns the drive time from the JSON output code. This geocoding
 #'   information from the JSON is originally returned as a dataframe.
 #' @param address a string; the address to be queried for geocoded information.
+#' @param app_api a string; the user's API Key Credentials for the HERE.com
+#'   JavaScript/REST (requires registration)
 #' @param app_id a string; the user's App ID for the HERE.com JavaScript/REST
 #'   (requires registration)
 #' @param app_code a string; the user's App Code for the HERE.com
@@ -23,22 +25,28 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom RCurl curlEscape curlUnescape
 #' @export
-HERE_geocode <- function(address = NULL, app_id = NULL, app_code = NULL
-  , dev = FALSE, verbose = FALSE) {
+HERE_geocode <- function(address = NULL, app_api = NULL, app_id = NULL
+  , app_code = NULL, dev = FALSE, verbose = FALSE) {
   if (dev == TRUE) {
     base <- "https://geocoder.cit.api.here.com/6.2/geocode.json?"
   } else if (dev == FALSE) {
-    base <- "https://geocoder.api.here.com/6.2/geocode.json?"
+    if (!is.null(app_api)) {
+      base <- "https://geocoder.ls.hereapi.com/6.2/geocode.json?"
+      app <- paste0("&apiKey=", RCurl::curlEscape(app_api))
+    } else {
+      base <- "https://geocoder.api.here.com/6.2/geocode.json?"
+      id <- paste0("&app_id=", RCurl::curlEscape(app_id))
+      code <- paste0("&app_code=", RCurl::curlEscape(app_code))
+      app <- paste0(id, code)
+    }
   } else {
     stop(
       "Error: argument 'dev' must be given value of either TRUE or FALSE.\n"
       )
   }
   address <- paste0("searchtext=", RCurl::curlEscape(address))
-  id <- paste0("&app_id=", RCurl::curlEscape(app_id))
-  code <- paste0("&app_code=", RCurl::curlEscape(app_code))
-  gen <- "&gen=8"
-  request_url <- paste0(base, address, id, code, gen)
+  #gen <- "&gen=8"
+  request_url <- paste0(base, address, app)#, gen)
   if (verbose == TRUE) {
     message(request_url)
   }
