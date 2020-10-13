@@ -16,13 +16,13 @@
 #' @examples
 #' # Input list of degree values
 #' # Longitude values range between 0 and +-180 degrees
-#' deg.lon <- runif(1000, -180, 180)
+#' deg.lon <- runif(2, -180, 180)
 #' # Latitude values range between 0 and +-90 degrees
-#' deg.lat <- runif(1000, -90, 90)
+#' deg.lat <- runif(2, -90, 90)
 #'
-#' # Obtain measures of distnace
-#' gcd.mi <- dist_all(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
-#'   , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
+#' # Obtain measures of distance
+#' gcd.mi <- dist_all(lon1 = deg.lon[1], lat1 = deg.lat[1]
+#'   , lon2 = deg.lon[2], lat2 = deg.lat[2], km = FALSE)
 #' @export
 dist_all <- function(lat1, lon1, lat2, lon2, type = "deg", km = TRUE) {
   if (type == "deg") {

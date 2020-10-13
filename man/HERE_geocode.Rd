@@ -4,8 +4,14 @@
 \alias{HERE_geocode}
 \title{Get geocoding information using HERE.com Geocoder API}
 \usage{
-HERE_geocode(address = NULL, app_api = NULL, app_id = NULL,
-  app_code = NULL, dev = FALSE, verbose = FALSE)
+HERE_geocode(
+  address = NULL,
+  app_api = NULL,
+  app_id = NULL,
+  app_code = NULL,
+  dev = FALSE,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{address}{a string; the address to be queried for geocoded information.}

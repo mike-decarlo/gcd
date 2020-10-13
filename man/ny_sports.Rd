@@ -4,7 +4,9 @@
 \name{ny_sports}
 \alias{ny_sports}
 \title{Sports Teams of the NY City Area}
-\format{An object of class \code{"data.frame"}.}
+\format{
+An object of class \code{"data.frame"}.
+}
 \usage{
 data(ny_sports)
 }

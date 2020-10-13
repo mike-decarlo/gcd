@@ -4,11 +4,18 @@
 \alias{Google_drivetime}
 \title{Get drive time in hours from Google.com Routing API}
 \usage{
-Google_drivetime(origin = NULL, destination = NULL, key = NULL,
-  mode = "driving", transit_mode = NULL,
-  transit_routing_preference = NULL, time_format = "minutes",
-  distance_format = "customary", coordinate_type = "deg",
-  verbose = FALSE)
+Google_drivetime(
+  origin = NULL,
+  destination = NULL,
+  key = NULL,
+  mode = "driving",
+  transit_mode = NULL,
+  transit_routing_preference = NULL,
+  time_format = "minutes",
+  distance_format = "customary",
+  coordinate_type = "deg",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{origin}{a string or vector of two numerics; if a location string,

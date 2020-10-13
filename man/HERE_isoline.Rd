@@ -4,11 +4,21 @@
 \alias{HERE_isoline}
 \title{Get polygon line drawing output from HERE.com}
 \usage{
-HERE_isoline(origin = NULL, app_api = NULL, app_id = NULL,
-  app_code = NULL, coord_type = "deg", mode_type = "fastest",
-  mode_tran = "car", mode_traf = "disabled", range_type = "distance",
-  range_unit = "mi", range_val = NULL, dev = FALSE,
-  verbose = FALSE)
+HERE_isoline(
+  origin = NULL,
+  app_api = NULL,
+  app_id = NULL,
+  app_code = NULL,
+  coord_type = "deg",
+  mode_type = "fastest",
+  mode_tran = "car",
+  mode_traf = "disabled",
+  range_type = "distance",
+  range_unit = "mi",
+  range_val = NULL,
+  dev = FALSE,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{origin}{a vector of length two (2); the latitude and longitude

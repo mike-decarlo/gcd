@@ -23,4 +23,4 @@ URL: https://github.com/mike-decarlo/gcd
 BugReports: https://github.com/mike-decarlo/gcd
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1.9000
+RoxygenNote: 7.1.1
