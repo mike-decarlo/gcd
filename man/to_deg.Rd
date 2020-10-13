@@ -20,6 +20,6 @@ degrees.
 \examples{
 # Input list of degree values
 # Longitude values range between 0 and +-180 degrees
-rad <- runif(1000, -180, 180) * pi / 180
+rad <- runif(1, -180, 180) * pi / 180
 deg <- to_deg(rad)
 }
