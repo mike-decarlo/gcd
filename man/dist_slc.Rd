@@ -31,11 +31,11 @@ surface of a sphere.
 \examples{
 # Input list of degree values
 # Longitude values range between 0 and +-180 degrees
-deg.lon <- runif(1000, -180, 180)
+deg.lon <- runif(2, -180, 180)
 # Latitude values range between 0 and +-90 degrees
-deg.lat <- runif(1000, -90, 90)
+deg.lat <- runif(2, -90, 90)
 
 # Obtain measures of distnace
-sphere.mi <- dist_slc(lon1 = deg.lon[1:500], lat1 = deg.lat[1:500]
-  , lon2 = deg.lon[501:1000], lat2 = deg.lat[501:1000], km = FALSE)
+sphere.mi <- dist_slc(lon1 = deg.lon[1], lat1 = deg.lat[1]
+  , lon2 = deg.lon[2], lat2 = deg.lat[2], km = FALSE)
 }
